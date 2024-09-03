@@ -10,6 +10,7 @@ public class Stars : MonoBehaviour
         {
             //text met star collected
             //start collected aan het begin van het level
+            
         }
     }
 }
