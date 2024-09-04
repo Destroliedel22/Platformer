@@ -4590,9 +4590,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 691564734517932721, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 691564734517932721, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5
+      value: -17.2
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4604,19 +4612,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4624,7 +4632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3148367730867777711, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4632,18 +4640,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6605151043358384948, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_Name
-      value: OwnMadeCharacter
+      value: Character
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6605151043358384948, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2077086162}
   m_SourcePrefab: {fileID: 100100000, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
 --- !u!1 &2077086157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6605151043358384948, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
   m_PrefabInstance: {fileID: 2077086156}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &2077086158 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 691564734517932721, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+  m_PrefabInstance: {fileID: 2077086156}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2077086162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077086157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd30a78c382558342b299376a546f682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f177542b-4cf2-4cda-bb17-872a3ee2bda2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1d5f3e4d-c032-4e8d-a7aa-a74121e7a175
+      m_Path: <Gamepad>/leftStick
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 0
+    m_Flags: 0
+  direction: {x: 0, y: 0}
+  speed: 5
+  rigidBody: {fileID: 2077086158}
 --- !u!1001 &2119966322
 PrefabInstance:
   m_ObjectHideFlags: 0
