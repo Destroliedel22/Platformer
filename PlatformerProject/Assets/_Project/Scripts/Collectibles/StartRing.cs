@@ -14,6 +14,8 @@ public class StartRing : MonoBehaviour
 
     public GameObject Spawnpoint;
 
+    public GameObject coinsAndCrown;
+
     public GameObject player;
 
     public TextMeshProUGUI timerText;
@@ -24,6 +26,7 @@ public class StartRing : MonoBehaviour
         {
             StartCoroutine(timerCountDown());
             timerGoing = true;
+            coinsAndCrown.gameObject.SetActive(true);
         }
     }
 
@@ -40,6 +43,7 @@ public class StartRing : MonoBehaviour
             player.transform.localPosition = Spawnpoint.transform.localPosition;
             timerGoing = false;
             timerText.text = null;
+            coinsAndCrown.SetActive(false);
         }
 
         if(CrownPickedUp)
@@ -47,6 +51,10 @@ public class StartRing : MonoBehaviour
             StopCoroutine(timerCountDown());
             timer = 12;
             timerText.text = null;
+            if(coinsAndCrown != null)
+            {
+                coinsAndCrown.SetActive(false);
+            }
             //you got the crown
         }
     }
