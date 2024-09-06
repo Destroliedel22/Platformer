@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
-public class StartRing : MonoBehaviour
+public class StartLevel : MonoBehaviour
 {
+    private Actionmap myInteractButton;
+
     public int timer = 12;
     public bool timerGoing = false;
 
@@ -15,22 +18,43 @@ public class StartRing : MonoBehaviour
     public GameObject Spawnpoint;
 
     public GameObject coinsAndCrown;
+    public GameObject Fences;
 
     public GameObject player;
 
     public TextMeshProUGUI timerText;
 
-    private void OnTriggerEnter(Collider other)
+    public float click;
+
+    private void Awake()
     {
-        if(other.CompareTag("Player") && timerGoing == false)
-        {
-            StartCoroutine(timerCountDown());
-            timerGoing = true;
-            coinsAndCrown.gameObject.SetActive(true);
-        }
+        myInteractButton = new Actionmap();
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        myInteractButton.Enable();
+        myInteractButton.Controls.Enable();
+        myInteractButton.Controls.Interact.performed += interact;
+        myInteractButton.Controls.Interact.performed += Stopinteract;
+    }
+
+    private void interact(InputAction.CallbackContext value)
+    {
+        click = value.ReadValue<float>();
+    }
+
+    private void Stopinteract(InputAction.CallbackContext value)
+    {
+        click = value.ReadValue<float>();
+    }
+
+    private void FixedUpdate()
+    {
+        Timer();
+    }
+
+    public void Timer()
     {
         if (timerGoing)
         {
@@ -46,12 +70,12 @@ public class StartRing : MonoBehaviour
             coinsAndCrown.SetActive(false);
         }
 
-        if(CrownPickedUp)
+        if (CrownPickedUp)
         {
             StopCoroutine(timerCountDown());
             timer = 12;
             timerText.text = null;
-            if(coinsAndCrown != null)
+            if (coinsAndCrown != null)
             {
                 coinsAndCrown.SetActive(false);
             }
@@ -61,10 +85,12 @@ public class StartRing : MonoBehaviour
 
     IEnumerator timerCountDown()
     {
-        while(timer > 0)
+        while (timer > 0)
         {
             yield return new WaitForSeconds(1);
             timer--;
         }
     }
+
+
 }

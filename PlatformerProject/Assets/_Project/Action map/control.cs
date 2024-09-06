@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class control : MonoBehaviour
 {
-    public InputAction moveAction;
+    private Actionmap myPlayerMovement;
 
     public Vector2 direction;
 
@@ -15,27 +13,28 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody rigidBody;
 
-    private void Start()
+    private void Awake()
     {
-        moveAction.performed += Move;
-        moveAction.canceled += StopMove;
-        moveAction.Enable();
+        myPlayerMovement = new Actionmap();
     }
 
-    private void OnDisable()
+    private void OnEnable()
     {
-        moveAction.performed -= Move;
-        moveAction.canceled -= StopMove;
-        moveAction.Disable();
+        myPlayerMovement.Enable();
+        myPlayerMovement.Controls.Enable();
+        myPlayerMovement.Controls.move.performed += Move;
+        myPlayerMovement.Controls.move.canceled += StopMove;
     }
 
     private void Move(InputAction.CallbackContext value)
     {
+        //myPlayerMovement.Controls.move.ReadValue<Vector2>();
         direction = value.ReadValue<Vector2>().normalized;
     }
 
     private void StopMove(InputAction.CallbackContext value)
     {
+        //myPlayerMovement.Controls.move.ReadValue<Vector2>();
         direction = value.ReadValue<Vector2>().normalized;
     }
 

@@ -14,12 +14,9 @@ public class MovingPlatform : MonoBehaviour
 
     bool switching;
 
-    private void OnCollisionStay(Collision collision)
+    private void FixedUpdate()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            
-        }
+        movePlatform();
     }
 
     private void movePlatform()

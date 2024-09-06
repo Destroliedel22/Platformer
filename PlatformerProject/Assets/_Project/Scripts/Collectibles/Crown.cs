@@ -16,7 +16,7 @@ public class Crown : MonoBehaviour
         {
             playerScript.GetComponent<Player>().crownAmount++;
             Crowns.text = "Crowns:" + playerScript.GetComponent<Player>().crownAmount;
-            startRing.GetComponent<StartRing>().CrownPickedUp = true;
+            startRing.GetComponent<StartLevel>().CrownPickedUp = true;
             Destroy(this.gameObject);
         }
     }
