@@ -2635,8 +2635,9 @@ GameObject:
   m_Component:
   - component: {fileID: 938780585}
   - component: {fileID: 938780586}
+  - component: {fileID: 938780587}
   m_Layer: 0
-  m_Name: press e
+  m_Name: Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2678,6 +2679,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0382249, y: 0.53360164, z: 1.0386227}
   m_Center: {x: 0.022828013, y: -0.5308475, z: -0.589339}
+--- !u!114 &938780587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938780584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e55b53b9336dc42bb225934a0d4360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 12
+  timerGoing: 0
+  CrownPickedUp: 0
+  coinsAndCrown: {fileID: 1279002344}
+  Fences: {fileID: 655865834}
+  player: {fileID: 2077086157}
+  timerText: {fileID: 388643669}
+  click: 0
 --- !u!1001 &1099923813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3585,37 +3606,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8762510976629244630, guid: 87da3ffcdd2d1c94cb3ca4e414eec0ba, type: 3}
   m_PrefabInstance: {fileID: 1547267506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1550434355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1550434356}
-  m_Layer: 0
-  m_Name: SpawnPoint1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1550434356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550434355}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 2.4, z: 21.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1554551377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5121,16 +5111,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 7068214894078793868, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+      propertyPath: ctr
+      value: 
+      objectReference: {fileID: 2077086165}
+    - target: {fileID: 7068214894078793868, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2077086166}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6605151043358384948, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2077086166}
   m_SourcePrefab: {fileID: 100100000, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
 --- !u!1 &2077086157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6605151043358384948, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
   m_PrefabInstance: {fileID: 2077086156}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2077086165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2971388043658923116, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+  m_PrefabInstance: {fileID: 2077086156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077086157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67132f357917f94d96ae713740cade5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2077086166
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077086157}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec20cacb403e7ff47ac6b8c2df2b9553, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2119966322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5802,7 +5835,6 @@ SceneRoots:
   - {fileID: 7820880794763218617}
   - {fileID: 2077086156}
   - {fileID: 620139636}
-  - {fileID: 1550434356}
   - {fileID: 1833557923}
   - {fileID: 68206234}
   - {fileID: 303456461}

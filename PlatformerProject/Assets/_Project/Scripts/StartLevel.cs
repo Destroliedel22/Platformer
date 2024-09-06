@@ -15,7 +15,7 @@ public class StartLevel : MonoBehaviour
 
     public bool CrownPickedUp = false;
 
-    public GameObject Spawnpoint;
+    //public GameObject Spawnpoint;
 
     public GameObject coinsAndCrown;
     public GameObject Fences;
@@ -64,7 +64,7 @@ public class StartLevel : MonoBehaviour
         if (timer < 0)
         {
             timer = 12;
-            player.transform.localPosition = Spawnpoint.transform.localPosition;
+            //player.transform.localPosition = Spawnpoint.transform.localPosition;
             timerGoing = false;
             timerText.text = null;
             coinsAndCrown.SetActive(false);

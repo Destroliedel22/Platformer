@@ -9,7 +9,9 @@ public class control : MonoBehaviour
 
     public Vector2 direction;
 
-    [SerializeField] private float speed;
+    public float speed;
+
+    bool walking = false;
 
     [SerializeField] private Rigidbody rigidBody;
 
@@ -30,16 +32,35 @@ public class control : MonoBehaviour
     {
         //myPlayerMovement.Controls.move.ReadValue<Vector2>();
         direction = value.ReadValue<Vector2>().normalized;
+        walking = true;
     }
 
     private void StopMove(InputAction.CallbackContext value)
     {
         //myPlayerMovement.Controls.move.ReadValue<Vector2>();
         direction = value.ReadValue<Vector2>().normalized;
+        walking = false;
     }
 
     private void FixedUpdate()
     {
         rigidBody.velocity = new Vector3(direction.x * speed, 0, direction.y * speed);
+        if(walking)
+        {
+            if(speed < 8)
+            {
+                StartCoroutine(Accelerate());
+            }
+        }
+        else
+        {
+            speed = 0;
+        }
+    }
+
+    IEnumerator Accelerate()
+    {
+        speed++;
+        yield return new WaitForSeconds(0.5f);
     }
 }
