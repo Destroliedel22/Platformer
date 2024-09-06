@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScript: {fileID: 2077086157}
   Crowns: {fileID: 2051442451}
-  startRing: {fileID: 395130803921131588}
+  startRing: {fileID: 938780584}
 --- !u!1 &255088483
 GameObject:
   m_ObjectHideFlags: 0

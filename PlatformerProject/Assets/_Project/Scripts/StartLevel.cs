@@ -36,7 +36,13 @@ public class StartLevel : MonoBehaviour
         myInteractButton.Enable();
         myInteractButton.Controls.Enable();
         myInteractButton.Controls.Interact.performed += interact;
-        myInteractButton.Controls.Interact.performed += Stopinteract;
+        myInteractButton.Controls.Interact.canceled += Stopinteract;
+    }
+
+    private void OnDisable()
+    {
+        myInteractButton.Controls.Interact.performed -= interact;
+        myInteractButton.Controls.Interact.canceled -= Stopinteract;
     }
 
     private void interact(InputAction.CallbackContext value)
@@ -51,15 +57,26 @@ public class StartLevel : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Timer();
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(click == 1)
+        {
+            Timer();
+            timerGoing = true;
+            if(timerGoing)
+            {
+                timerText.text = "time left:" + timer.ToString();
+            }
+        }
     }
 
     public void Timer()
     {
-        if (timerGoing)
-        {
-            timerText.text = "time left:" + timer.ToString();
-        }
+        StartCoroutine(timerCountDown());
+        coinsAndCrown.SetActive(true);
 
         if (timer < 0)
         {
