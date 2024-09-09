@@ -17,6 +17,8 @@ public class PlayerJump : MonoBehaviour
     public float downForce;
     private float beginDownForce;
 
+    public Animator anim;
+
     private void Start()
     {
         jumpAction.performed += Jump;
@@ -36,11 +38,13 @@ public class PlayerJump : MonoBehaviour
     private void Jump(InputAction.CallbackContext value)
     {
         direction = value.ReadValue<float>();
+        anim.SetBool("Jumping", true);
     }
 
     private void StopJump(InputAction.CallbackContext value)
     {
         direction = value.ReadValue<float>();
+        anim.SetBool("Jumping", false);
     }
 
     private void FixedUpdate()

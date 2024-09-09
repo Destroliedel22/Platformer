@@ -45,7 +45,7 @@ public class control : MonoBehaviour
         rigidBody.velocity = new Vector3(direction.x * speed, 0, direction.y * speed);
         if(walking)
         {
-            if(speed < 8)
+            if(speed < 5)
             {
                 StartCoroutine(Accelerate());
             }
@@ -59,6 +59,6 @@ public class control : MonoBehaviour
     IEnumerator Accelerate()
     {
         speed++;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(10f);
     }
 }
