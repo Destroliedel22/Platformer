@@ -30,14 +30,12 @@ public class control : MonoBehaviour
 
     private void Move(InputAction.CallbackContext value)
     {
-        //myPlayerMovement.Controls.move.ReadValue<Vector2>();
         direction = value.ReadValue<Vector2>().normalized;
         walking = true;
     }
 
     private void StopMove(InputAction.CallbackContext value)
     {
-        //myPlayerMovement.Controls.move.ReadValue<Vector2>();
         direction = value.ReadValue<Vector2>().normalized;
         walking = false;
     }

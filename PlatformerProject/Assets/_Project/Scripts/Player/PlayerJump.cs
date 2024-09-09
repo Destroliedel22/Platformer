@@ -15,12 +15,15 @@ public class PlayerJump : MonoBehaviour
 
     public float force;
     public float downForce;
+    private float beginDownForce;
 
     private void Start()
     {
         jumpAction.performed += Jump;
         jumpAction.canceled += StopJump;
         jumpAction.Enable();
+
+        beginDownForce = downForce;
     }
 
     private void OnDisable()
@@ -33,12 +36,6 @@ public class PlayerJump : MonoBehaviour
     private void Jump(InputAction.CallbackContext value)
     {
         direction = value.ReadValue<float>();
-
-        if (direction == 1 && isGrounded)
-        {
-            rigidBody.AddForce(Vector3.up * force * Time.deltaTime);
-            isGrounded = false;
-        }
     }
 
     private void StopJump(InputAction.CallbackContext value)
@@ -48,9 +45,20 @@ public class PlayerJump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (direction == 1 && isGrounded)
+        {
+            rigidBody.AddForce(Vector3.up * force);
+            isGrounded = false;
+            downForce = beginDownForce;
+        }
+
         if (isGrounded == false)
         {
-            rigidBody.AddForce(Vector3.down * downForce * Time.deltaTime);
+            rigidBody.AddForce(Vector3.down * downForce);
+            if(downForce < 1000)
+            {
+                downForce += 10;
+            }
         }
     }
 
