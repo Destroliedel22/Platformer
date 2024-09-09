@@ -177,12 +177,20 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Jump
       m_Flags: 0
+    - m_Name: 
+      m_Id: e0270c5e-68b9-4411-8215-4492d30ed56e
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
     m_Flags: 0
   direction: 0
   rigidBody: {fileID: 691564734517932721}
   isGrounded: 0
   force: 5000
-  downForce: 250
+  downForce: 200
 --- !u!1 &7293949802925211488
 GameObject:
   m_ObjectHideFlags: 0
