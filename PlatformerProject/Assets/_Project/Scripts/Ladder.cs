@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,8 @@ public class Ladder : MonoBehaviour
 
     private bool up;
     private bool down;
+
+    private bool cooldown = false;
 
     private bool onLadder = false;
 
@@ -75,13 +78,20 @@ public class Ladder : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (click == 1 && onLadder == false)
+        if (cooldown == false)
         {
-            onLadder = true;
-        }
-        else if (click == 1 && onLadder == true)
-        {
-            onLadder = false;
+            if(click == 1)
+            {
+                StartCoroutine(InteractCooldown());
+                if(onLadder)
+                {
+                    onLadder = false;
+                }
+                else if(onLadder == false)
+                {
+                    onLadder = true;
+                }
+            }
         }
 
         rb = other.gameObject.GetComponent<Rigidbody>();
@@ -95,23 +105,22 @@ public class Ladder : MonoBehaviour
             {
                 rb.velocity = new Vector3(0, direction * speed, 0);
             }
-            else
-            {
-                //rb.velocity = new Vector3();
-            }
 
             if (downDirection > 0)
             {
                 rb.velocity = new Vector3(0, downDirection * -speed, 0);
-            }
-            else
-            {
-                //rb.velocity = new Vector3();
             }
         }
         else
         {
             other.gameObject.GetComponent<control>().enabled = true;
         }
+    }
+
+    IEnumerator InteractCooldown()
+    {
+        cooldown = true;
+        yield return new WaitForSeconds(0.3f);
+        cooldown = false;
     }
 }
