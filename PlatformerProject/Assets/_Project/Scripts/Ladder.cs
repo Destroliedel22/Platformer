@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ public class Ladder : MonoBehaviour
     private bool down;
 
     private bool onLadder = false;
+
+    private Rigidbody rb;
 
     private void Awake()
     {
@@ -70,51 +73,40 @@ public class Ladder : MonoBehaviour
         click = value.ReadValue<float>();
     }
 
-    private void FixedUpdate()
+    private void OnTriggerStay(Collider other)
     {
-        if(click == 1 && onLadder == false)
+        if (click == 1 && onLadder == false)
         {
             onLadder = true;
         }
-        else if(click == 1 && onLadder == true)
+        else if (click == 1 && onLadder == true)
         {
             onLadder = false;
         }
 
-        if(direction == 1)
-        {
-            up = true;
-        }
-        else
-        {
-            up = false;
-        }
-
-        if (downDirection == 1)
-        {
-            down = true;
-        }
-        else
-        {
-            down = false;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        rb = other.gameObject.GetComponent<Rigidbody>();
         other.gameObject.GetComponent<PlayerJump>().downForce = 0;
         rb.useGravity = false;
+
         if (onLadder)
         {
             other.gameObject.GetComponent<control>().enabled = false;
-            if (up)
+            if (direction > 0)
             {
                 rb.velocity = new Vector3(0, direction * speed, 0);
             }
-            else if (down)
+            else
+            {
+                //rb.velocity = new Vector3();
+            }
+
+            if (downDirection > 0)
             {
                 rb.velocity = new Vector3(0, downDirection * -speed, 0);
+            }
+            else
+            {
+                //rb.velocity = new Vector3();
             }
         }
         else
