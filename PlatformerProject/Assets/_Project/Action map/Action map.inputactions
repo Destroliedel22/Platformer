@@ -13,15 +13,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "1cdad35e-6a7b-42fb-ac35-66381ab68d47",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -90,15 +81,80 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
+                }
+            ]
+        },
+        {
+            "name": "Interact",
+            "id": "3f0be94f-e8e8-47d9-a1d5-291628154202",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "0792dd44-5756-418b-8599-2ce08260e4ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "c51c5d00-fd0d-4e2e-9001-6dd503a07d15",
+                    "id": "bad21bcd-8aac-4719-907f-1db231e5d2aa",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Ladder",
+            "id": "2e2bfc91-f948-4876-aae6-bc1b7b858b8a",
+            "actions": [
+                {
+                    "name": "ClimbingUp",
+                    "type": "Value",
+                    "id": "c4550f48-dded-4ba7-b8f8-154803f49d40",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ClimbingDown",
+                    "type": "Button",
+                    "id": "d3d95915-fbc4-46c1-ba73-6a6c5d7dd706",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a12a326f-8f34-44fd-9d8d-4ebb938c3915",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClimbingUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e16d5ae8-4bc7-4e5b-9fa3-3f51c7ca0e97",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClimbingDown",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

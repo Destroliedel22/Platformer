@@ -13,7 +13,7 @@ public class control : MonoBehaviour
 
     bool walking = false;
 
-    [SerializeField] private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
 
     private void Awake()
     {

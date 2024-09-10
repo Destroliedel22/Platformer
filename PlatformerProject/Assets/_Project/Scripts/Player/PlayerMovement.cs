@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float speed;
 
-    [SerializeField] private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
 
     private void Start()
     {

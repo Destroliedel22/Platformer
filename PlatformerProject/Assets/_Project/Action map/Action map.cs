@@ -35,15 +35,6 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""1cdad35e-6a7b-42fb-ac35-66381ab68d47"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,15 +103,80 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                     ""action"": ""move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
+                }
+            ]
+        },
+        {
+            ""name"": ""Interact"",
+            ""id"": ""3f0be94f-e8e8-47d9-a1d5-291628154202"",
+            ""actions"": [
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""0792dd44-5756-418b-8599-2ce08260e4ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""c51c5d00-fd0d-4e2e-9001-6dd503a07d15"",
+                    ""id"": ""bad21bcd-8aac-4719-907f-1db231e5d2aa"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Ladder"",
+            ""id"": ""2e2bfc91-f948-4876-aae6-bc1b7b858b8a"",
+            ""actions"": [
+                {
+                    ""name"": ""ClimbingUp"",
+                    ""type"": ""Value"",
+                    ""id"": ""c4550f48-dded-4ba7-b8f8-154803f49d40"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ClimbingDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3d95915-fbc4-46c1-ba73-6a6c5d7dd706"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a12a326f-8f34-44fd-9d8d-4ebb938c3915"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbingUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e16d5ae8-4bc7-4e5b-9fa3-3f51c7ca0e97"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbingDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -132,7 +188,13 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         // Controls
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_move = m_Controls.FindAction("move", throwIfNotFound: true);
-        m_Controls_Interact = m_Controls.FindAction("Interact", throwIfNotFound: true);
+        // Interact
+        m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
+        m_Interact_Interact = m_Interact.FindAction("Interact", throwIfNotFound: true);
+        // Ladder
+        m_Ladder = asset.FindActionMap("Ladder", throwIfNotFound: true);
+        m_Ladder_ClimbingUp = m_Ladder.FindAction("ClimbingUp", throwIfNotFound: true);
+        m_Ladder_ClimbingDown = m_Ladder.FindAction("ClimbingDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -195,13 +257,11 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Controls;
     private List<IControlsActions> m_ControlsActionsCallbackInterfaces = new List<IControlsActions>();
     private readonly InputAction m_Controls_move;
-    private readonly InputAction m_Controls_Interact;
     public struct ControlsActions
     {
         private @Actionmap m_Wrapper;
         public ControlsActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
         public InputAction @move => m_Wrapper.m_Controls_move;
-        public InputAction @Interact => m_Wrapper.m_Controls_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -214,9 +274,6 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
             @move.started += instance.OnMove;
             @move.performed += instance.OnMove;
             @move.canceled += instance.OnMove;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IControlsActions instance)
@@ -224,9 +281,6 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
             @move.started -= instance.OnMove;
             @move.performed -= instance.OnMove;
             @move.canceled -= instance.OnMove;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IControlsActions instance)
@@ -244,9 +298,117 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         }
     }
     public ControlsActions @Controls => new ControlsActions(this);
+
+    // Interact
+    private readonly InputActionMap m_Interact;
+    private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
+    private readonly InputAction m_Interact_Interact;
+    public struct InteractActions
+    {
+        private @Actionmap m_Wrapper;
+        public InteractActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Interact => m_Wrapper.m_Interact_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_Interact; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractActions set) { return set.Get(); }
+        public void AddCallbacks(IInteractActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InteractActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InteractActionsCallbackInterfaces.Add(instance);
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+        }
+
+        private void UnregisterCallbacks(IInteractActions instance)
+        {
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+        }
+
+        public void RemoveCallbacks(IInteractActions instance)
+        {
+            if (m_Wrapper.m_InteractActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInteractActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InteractActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InteractActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InteractActions @Interact => new InteractActions(this);
+
+    // Ladder
+    private readonly InputActionMap m_Ladder;
+    private List<ILadderActions> m_LadderActionsCallbackInterfaces = new List<ILadderActions>();
+    private readonly InputAction m_Ladder_ClimbingUp;
+    private readonly InputAction m_Ladder_ClimbingDown;
+    public struct LadderActions
+    {
+        private @Actionmap m_Wrapper;
+        public LadderActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ClimbingUp => m_Wrapper.m_Ladder_ClimbingUp;
+        public InputAction @ClimbingDown => m_Wrapper.m_Ladder_ClimbingDown;
+        public InputActionMap Get() { return m_Wrapper.m_Ladder; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(LadderActions set) { return set.Get(); }
+        public void AddCallbacks(ILadderActions instance)
+        {
+            if (instance == null || m_Wrapper.m_LadderActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LadderActionsCallbackInterfaces.Add(instance);
+            @ClimbingUp.started += instance.OnClimbingUp;
+            @ClimbingUp.performed += instance.OnClimbingUp;
+            @ClimbingUp.canceled += instance.OnClimbingUp;
+            @ClimbingDown.started += instance.OnClimbingDown;
+            @ClimbingDown.performed += instance.OnClimbingDown;
+            @ClimbingDown.canceled += instance.OnClimbingDown;
+        }
+
+        private void UnregisterCallbacks(ILadderActions instance)
+        {
+            @ClimbingUp.started -= instance.OnClimbingUp;
+            @ClimbingUp.performed -= instance.OnClimbingUp;
+            @ClimbingUp.canceled -= instance.OnClimbingUp;
+            @ClimbingDown.started -= instance.OnClimbingDown;
+            @ClimbingDown.performed -= instance.OnClimbingDown;
+            @ClimbingDown.canceled -= instance.OnClimbingDown;
+        }
+
+        public void RemoveCallbacks(ILadderActions instance)
+        {
+            if (m_Wrapper.m_LadderActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ILadderActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LadderActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LadderActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public LadderActions @Ladder => new LadderActions(this);
     public interface IControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IInteractActions
+    {
         void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface ILadderActions
+    {
+        void OnClimbingUp(InputAction.CallbackContext context);
+        void OnClimbingDown(InputAction.CallbackContext context);
     }
 }

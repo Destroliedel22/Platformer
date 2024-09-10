@@ -34,15 +34,9 @@ public class StartLevel : MonoBehaviour
     private void OnEnable()
     {
         myInteractButton.Enable();
-        myInteractButton.Controls.Enable();
-        myInteractButton.Controls.Interact.performed += interact;
-        myInteractButton.Controls.Interact.canceled += Stopinteract;
-    }
-
-    private void OnDisable()
-    {
-        myInteractButton.Controls.Interact.performed -= interact;
-        myInteractButton.Controls.Interact.canceled -= Stopinteract;
+        myInteractButton.Interact.Enable();
+        myInteractButton.Interact.Interact.performed += interact;
+        myInteractButton.Interact.Interact.canceled += Stopinteract;
     }
 
     private void interact(InputAction.CallbackContext value)
@@ -53,11 +47,6 @@ public class StartLevel : MonoBehaviour
     private void Stopinteract(InputAction.CallbackContext value)
     {
         click = value.ReadValue<float>();
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     private void OnTriggerStay(Collider other)
