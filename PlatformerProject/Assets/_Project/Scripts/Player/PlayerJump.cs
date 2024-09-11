@@ -59,9 +59,9 @@ public class PlayerJump : MonoBehaviour
         if (isGrounded == false)
         {
             rigidBody.AddForce(Vector3.down * downForce);
-            if(downForce < 1000)
+            if(downForce < 100)
             {
-                downForce += 10;
+                downForce += 5;
             }
         }
     }
