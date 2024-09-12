@@ -14,8 +14,8 @@ public class Crown : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerScript.GetComponent<Player>().crownAmount++;
-            Crowns.text = "Crowns:" + playerScript.GetComponent<Player>().crownAmount;
+            ScoreManager.Instance.crownAmount++;
+            Crowns.text = "Crowns:" + ScoreManager.Instance.crownAmount;
             startRing.GetComponent<StartLevel>().CrownPickedUp = true;
             Destroy(this.gameObject);
         }

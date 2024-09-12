@@ -12,7 +12,6 @@ public class ButtonManager : MonoBehaviour
         StartCoroutine(WaitToLoadScene());
     }
 
-
     public void Quit()
     {
         Application.Quit();
