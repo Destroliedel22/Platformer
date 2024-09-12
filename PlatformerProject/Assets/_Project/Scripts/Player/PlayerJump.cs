@@ -38,22 +38,25 @@ public class PlayerJump : MonoBehaviour
     private void Jump(InputAction.CallbackContext value)
     {
         direction = value.ReadValue<float>();
-        anim.SetBool("Jumping", true);
     }
 
     private void StopJump(InputAction.CallbackContext value)
     {
         direction = value.ReadValue<float>();
-        anim.SetBool("Jumping", false);
     }
 
     private void FixedUpdate()
     {
         if (direction == 1 && isGrounded)
         {
+            anim.SetBool("Jumping", true);
             rigidBody.AddForce(Vector3.up * force);
             isGrounded = false;
             downForce = beginDownForce;
+        }
+        else if(direction == 0)
+        {
+            anim.SetBool("Jumping", false);
         }
 
         if (isGrounded == false)
@@ -72,11 +75,7 @@ public class PlayerJump : MonoBehaviour
         {
             isGrounded = true;
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
+        else
         {
             isGrounded = false;
         }
