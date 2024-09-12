@@ -1860,7 +1860,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3148367730867777711}
-  - component: {fileID: 7068214894078793868}
   - component: {fileID: 8107034815941370651}
   - component: {fileID: 691564734517932721}
   - component: {fileID: 2971388043658923116}
@@ -1890,22 +1889,6 @@ Transform:
   - {fileID: 3586553032344193015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7068214894078793868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6605151043358384948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc4bf9b0eb61f6489f5a51826ee7939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crownAmount: 0
-  coinAmount: 0
-  anim: {fileID: 707403150427346159}
-  ctr: {fileID: 2971388043658923116}
 --- !u!65 &8107034815941370651
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1936,7 +1919,7 @@ Rigidbody:
   m_GameObject: {fileID: 6605151043358384948}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 4
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1967,8 +1950,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
+  anim: {fileID: 707403150427346159}
   speed: 0
-  maxSpeed: 5
+  maxSpeed: 15
   rigidBody: {fileID: 691564734517932721}
 --- !u!114 &3560640200950931323
 MonoBehaviour:

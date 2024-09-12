@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class control : MonoBehaviour
     private Actionmap myPlayerMovement;
 
     public Vector2 direction;
+
+    public Animator anim;
 
     public float speed;
     public float maxSpeed = 5f;
@@ -43,7 +46,8 @@ public class control : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(walking)
+        anim.SetFloat("Speed", speed);
+        if (walking)
         {
             rigidBody.AddForce(direction.x * speed, 0, direction.y * speed);
             if (speed < maxSpeed)
@@ -54,7 +58,6 @@ public class control : MonoBehaviour
         else
         {
             speed = 0;
-            rigidBody.velocity = Vector3.zero;
         }
     }
 
