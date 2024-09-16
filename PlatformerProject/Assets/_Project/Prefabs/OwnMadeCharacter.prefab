@@ -1864,6 +1864,7 @@ GameObject:
   - component: {fileID: 691564734517932721}
   - component: {fileID: 2971388043658923116}
   - component: {fileID: 3560640200950931323}
+  - component: {fileID: 8503567844410998653}
   m_Layer: 0
   m_Name: OwnMadeCharacter
   m_TagString: Player
@@ -1997,6 +1998,21 @@ MonoBehaviour:
   force: 600
   downForce: 10
   anim: {fileID: 707403150427346159}
+--- !u!114 &8503567844410998653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605151043358384948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc4bf9b0eb61f6489f5a51826ee7939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 200
+  Health: {fileID: 0}
+  HPText: {fileID: 0}
 --- !u!1 &6753213058755474164
 GameObject:
   m_ObjectHideFlags: 0
