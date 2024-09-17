@@ -74,8 +74,13 @@ public class PlayerJump : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            this.gameObject.transform.SetParent(collision.transform, true);
         }
-        else
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
