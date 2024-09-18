@@ -8,16 +8,6 @@ public class Stars : PickUp
     public TextMeshProUGUI StarText;
     public TextMeshProUGUI StarCollected;
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.CompareTag("Player"))
-    //    {
-    //        StartCoroutine(StarCollectedText());
-    //        StarText.text = "1/1";
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
     IEnumerator StarCollectedText()
     {
         StarCollected.gameObject.SetActive(true);

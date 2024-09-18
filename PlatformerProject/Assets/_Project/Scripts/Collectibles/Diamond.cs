@@ -5,14 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Diamond : PickUp
 {
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.CompareTag("Player"))
-    //    {
-    //        StartCoroutine(WaitToLoadScene());
-    //    }
-    //}
-
     IEnumerator WaitToLoadScene()
     {
         yield return new WaitForSeconds(3);

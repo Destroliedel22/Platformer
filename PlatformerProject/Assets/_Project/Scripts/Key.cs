@@ -11,15 +11,6 @@ public class Key : PickUp
         KeyPickedUp = false;
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.CompareTag("Player"))
-    //    {
-    //        KeyPickedUp = true;
-    //        this.gameObject.SetActive(false);
-    //    }
-    //}
-
     public override void Activate()
     {
         KeyPickedUp = true;
