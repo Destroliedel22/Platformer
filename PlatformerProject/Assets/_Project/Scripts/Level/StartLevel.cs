@@ -12,13 +12,13 @@ public class StartLevel : MonoBehaviour
 
     public int timer = 12;
     public bool timerGoing = false;
+    public bool CoroutineStarted = false;
 
     public bool CrownPickedUp = false;
 
     //public GameObject Spawnpoint;
 
     public GameObject coinsAndCrown;
-    public GameObject Fences;
 
     public GameObject player;
 
@@ -55,32 +55,42 @@ public class StartLevel : MonoBehaviour
         {
             Timer();
             timerGoing = true;
-            if(timerGoing)
-            {
-                timerText.text = "time left:" + timer.ToString();
-            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (timerGoing)
+        {
+            timerText.text = "time left:" + timer.ToString();
         }
     }
 
     public void Timer()
     {
-        StartCoroutine(timerCountDown());
+        if(CoroutineStarted == false)
+        {
+            StartCoroutine(timerCountDown());
+            CoroutineStarted = true;
+        }
         coinsAndCrown.SetActive(true);
 
-        if (timer < 0)
+        if (timer <= 0)
         {
             timer = 12;
-            //player.transform.localPosition = Spawnpoint.transform.localPosition;
             timerGoing = false;
             timerText.text = null;
             coinsAndCrown.SetActive(false);
+            CoroutineStarted = false;
         }
 
-        if (CrownPickedUp)
+        else if (CrownPickedUp)
         {
             StopCoroutine(timerCountDown());
             timer = 12;
             timerText.text = null;
+            timerGoing = false;
+            CoroutineStarted = false;
             if (coinsAndCrown != null)
             {
                 coinsAndCrown.SetActive(false);

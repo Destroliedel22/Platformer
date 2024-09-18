@@ -24,7 +24,7 @@ public class Coin : PickUp
     public override void Activate()
     {
         ScoreManager.Instance.coinAmount++;
-        ParticleSystem.Play();
+        //ParticleSystem.Play();
         Coins.text = "Coins:" + ScoreManager.Instance.coinAmount;
         //StartCoroutine(WaitToDestroy());
         base.Activate();

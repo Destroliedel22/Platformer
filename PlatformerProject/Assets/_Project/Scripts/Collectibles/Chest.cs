@@ -35,11 +35,11 @@ public class Chest : MonoBehaviour
         click = value.ReadValue<float>();
     }
 
-    private void FixedUpdate()
+    private void OnTriggerStay(Collider other)
     {
-        if(click == 1)
+        if (click == 1)
         {
-            if (key.KeyPickedUp) 
+            if (key.KeyPickedUp)
             {
                 Lid.transform.rotation = Quaternion.Euler(-90, 0, 0);
             }
