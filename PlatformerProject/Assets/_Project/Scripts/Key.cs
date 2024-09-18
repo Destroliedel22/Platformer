@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class Key : PickUp
 {
     public bool KeyPickedUp;
 
@@ -11,12 +11,19 @@ public class Key : MonoBehaviour
         KeyPickedUp = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Player"))
+    //    {
+    //        KeyPickedUp = true;
+    //        this.gameObject.SetActive(false);
+    //    }
+    //}
+
+    public override void Activate()
     {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            KeyPickedUp = true;
-            this.gameObject.SetActive(false);
-        }
+        KeyPickedUp = true;
+        this.gameObject.SetActive(false);
+        base.Activate();
     }
 }

@@ -25,4 +25,12 @@ public class Player : MonoBehaviour
             Debug.Log("You Died");
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Collectible"))
+        {
+            other.GetComponent<PickUp>().Activate();
+        }
+    }
 }

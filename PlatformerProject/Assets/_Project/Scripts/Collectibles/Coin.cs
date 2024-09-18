@@ -1,33 +1,43 @@
+using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : PickUp
 {
     public TextMeshProUGUI Coins;
 
-    private ParticleSystem particleSystem;
+    private ParticleSystem ParticleSystem;
 
     private void Awake()
     {
-        particleSystem = GetComponentInChildren<ParticleSystem>();
+        ParticleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            ScoreManager.Instance.coinAmount++;
-            particleSystem.Play();
-            Coins.text = "Coins:" + ScoreManager.Instance.coinAmount;
-            StartCoroutine(WaitToDestroy());
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.CompareTag("Player"))
+    //    {
+    //        ScoreManager.Instance.coinAmount++;
+    //        particleSystem.Play();
+    //        Coins.text = "Coins:" + ScoreManager.Instance.coinAmount;
+    //        StartCoroutine(WaitToDestroy());
+    //    }
+    //}
 
     IEnumerator WaitToDestroy()
     {
-        yield return new WaitForSeconds(particleSystem.main.duration);
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds(ParticleSystem.main.duration);
+        base.Activate();
+    }
+
+    public override void Activate()
+    {
+        ScoreManager.Instance.coinAmount++;
+        ParticleSystem.Play();
+        //Coins.text = "Coins:" + ScoreManager.Instance.coinAmount;
+        //StartCoroutine(WaitToDestroy());
+        base.Activate();
     }
 }

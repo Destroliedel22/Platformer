@@ -9,6 +9,6 @@ public class CastleAccess : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CrownsNeeded.text = ScoreManager.Instance.crownAmount + "/5";
+        CrownsNeeded.text = ScoreManager.Instance.crownAmount + "/3";
     }
 }
