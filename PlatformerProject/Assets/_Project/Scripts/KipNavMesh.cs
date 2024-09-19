@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class KipNavMesh : MonoBehaviour
+public class KipNavMesh : NPC
 {
-    NavMeshAgent agent;
     Vector3 RandomDestination;
+
+    public Player player;
 
     public float destinationReachedThreshold = 1.0f;
 
@@ -14,6 +15,7 @@ public class KipNavMesh : MonoBehaviour
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
     }
+
 
     private void FixedUpdate()
     {

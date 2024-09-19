@@ -2,8 +2,9 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Alien : MonoBehaviour
+public class Alien : NPC
 {
     private enum AlienState
     {
@@ -16,20 +17,19 @@ public class Alien : MonoBehaviour
     }
     private AlienState state;
 
-    private Animator anim;
     private Rigidbody rb;
+    private Animator anim;
 
-    public float health;
+    Vector3 RandomDestination;
+    public float destinationReachedThreshold = 1.0f;
 
-    public float switchRoaming;
-
-    [SerializeField] private float speed;
-    [SerializeField] private float Stamina;
+    public float idleTimer;
 
     private void Awake()
     {
-        anim = gameObject.GetComponent<Animator>();
-        rb = gameObject.GetComponent<Rigidbody>();
+        anim = this.gameObject.GetComponent<Animator>();
+        rb = this.gameObject.GetComponent<Rigidbody>();
+        agent = this.gameObject.GetComponent<NavMeshAgent>();
     }
 
     private void Start()
@@ -64,6 +64,14 @@ public class Alien : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold)
+        {
+            RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
+        }
+    }
+
     private void Idle()
     {
         anim.SetFloat("Blend", 0);
@@ -74,8 +82,9 @@ public class Alien : MonoBehaviour
     private void Roaming()
     {
         anim.SetFloat("Blend", 2);
+        agent.SetDestination(RandomDestination);
         //walk
-        StartCoroutine(SwitchToIdle());
+        //StartCoroutine(SwitchToIdle());
     }
 
     private void Follow()
@@ -105,20 +114,14 @@ public class Alien : MonoBehaviour
 
     private void Death()
     {
-        //everytime enemy takes dmg check if health > 0
+        //every time enemy takes dmg check if health > 0
         //death animation
         //all other layers off
     }
 
     IEnumerator SwitchToRoaming()
     {
-        yield return new WaitForSeconds(switchRoaming);
+        yield return new WaitForSeconds(idleTimer);
         state = AlienState.roaming;
-    }
-
-    IEnumerator SwitchToIdle()
-    {
-        yield return new WaitForSeconds(switchRoaming);
-        state = AlienState.idle;
     }
 }
