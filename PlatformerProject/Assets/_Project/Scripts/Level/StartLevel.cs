@@ -82,7 +82,7 @@ public class StartLevel : MonoBehaviour
 
         if (timer <= 0)
         {
-            timer = 12;
+            timer = 16;
             timerGoing = false;
             timerText.text = null;
             coinsAndCrown.SetActive(false);
