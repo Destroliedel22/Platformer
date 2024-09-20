@@ -68,9 +68,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 12
   timerGoing: 0
+  CoroutineStarted: 0
   CrownPickedUp: 0
   coinsAndCrown: {fileID: 4848312362437111493}
-  Fences: {fileID: 0}
   player: {fileID: 0}
   timerText: {fileID: 0}
   click: 0
@@ -673,13 +673,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4076601637274817626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4092403834185454835}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c248aaccdc2a34ea45f3dcc2ae267c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHead: {fileID: 0}
+  target: {fileID: 0}
 --- !u!1 &7356157632625351695
 GameObject:
   m_ObjectHideFlags: 0

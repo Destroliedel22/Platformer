@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Canvas : MonoBehaviour
 {
-    public GameObject playerHead;
+    public GameObject target;
 
     private void FixedUpdate()
     {
-        gameObject.transform.LookAt(playerHead.transform);
+        gameObject.transform.LookAt(target.transform);
     }
 }
