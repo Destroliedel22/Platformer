@@ -22094,7 +22094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 691564734517932721, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: m_Constraints
-      value: 32
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2971388043658923116, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
       propertyPath: player

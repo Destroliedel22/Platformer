@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.Playables;
 
 public class StartLevel : MonoBehaviour
 {
@@ -26,9 +27,12 @@ public class StartLevel : MonoBehaviour
 
     public float click;
 
+    private PlayableDirector director;
+
     private void Awake()
     {
         myInteractButton = new Actionmap();
+        director = FindObjectOfType<PlayableDirector>();
     }
 
     private void OnEnable()
@@ -55,6 +59,7 @@ public class StartLevel : MonoBehaviour
         {
             Timer();
             timerGoing = true;
+            director.Play();
         }
     }
 
