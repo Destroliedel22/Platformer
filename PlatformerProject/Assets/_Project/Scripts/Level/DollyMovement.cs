@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class DollyMovement : MonoBehaviour
 {
@@ -12,11 +13,15 @@ public class DollyMovement : MonoBehaviour
     public Vector2 direction;
 
     CinemachineDollyCart CinemachineDollyCart;
+    PlayableDirector director;
+
+    public StartLevel startLevel;
 
     private void Awake()
     {
         myPlayerMovement = new Actionmap();
         CinemachineDollyCart = this.gameObject.GetComponent<CinemachineDollyCart>();
+        director = FindObjectOfType<PlayableDirector>();
     }
 
     private void OnEnable()
@@ -40,20 +45,23 @@ public class DollyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (this.gameObject.activeSelf)
+        if (startLevel.timerGoing)
         {
-            if(direction.y == 1)
-            {
-                CinemachineDollyCart.m_Speed = 1;
-            }
-            else if(direction.y == -1)
-            {
-                CinemachineDollyCart.m_Speed = -1;
-            }
-            else
-            {
-                CinemachineDollyCart.m_Speed = 0;
-            }
+            //if(direction.y >= 0.1f)
+            //{
+            //    director.Play();
+            //    director.Resume();
+            //}
+            //else if(direction.y <= -0.1f)
+            //{
+            //    director.time--;
+            //}
+            //else
+            //{
+            //    director.Stop();
+            //}
+
+            CinemachineDollyCart.gameObject.SetActive(true);
         }
     }
 }

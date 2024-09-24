@@ -6,18 +6,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 using UnityEngine.Playables;
+using Cinemachine;
 
 public class StartLevel : MonoBehaviour
 {
     private Actionmap myInteractButton;
 
-    public int timer = 12;
+    public int timer = 16;
     public bool timerGoing = false;
     public bool CoroutineStarted = false;
 
     public bool CrownPickedUp = false;
-
-    //public GameObject Spawnpoint;
 
     public GameObject coinsAndCrown;
 
@@ -27,12 +26,15 @@ public class StartLevel : MonoBehaviour
 
     public float click;
 
-    private PlayableDirector director;
+    public control control;
+
+    public CinemachineFreeLook playerCam;
+    public CinemachineVirtualCamera parkourCam;
+    public CinemachineDollyCart cinemachineDollyCart;
 
     private void Awake()
     {
         myInteractButton = new Actionmap();
-        director = FindObjectOfType<PlayableDirector>();
     }
 
     private void OnEnable()
@@ -59,7 +61,17 @@ public class StartLevel : MonoBehaviour
         {
             Timer();
             timerGoing = true;
-            director.Play();
+            playerCam.gameObject.SetActive(false);
+            parkourCam.gameObject.SetActive(true);
+            if(control.direction.y >= 0.1f)
+            {
+                cinemachineDollyCart.gameObject.SetActive(true);
+                cinemachineDollyCart.m_Speed = 1;
+            }
+            else
+            {
+                cinemachineDollyCart.m_Speed = 0;
+            }
         }
     }
 
@@ -84,7 +96,6 @@ public class StartLevel : MonoBehaviour
         {
             timer = 16;
             timerGoing = false;
-            timerText.text = null;
             coinsAndCrown.SetActive(false);
             CoroutineStarted = false;
         }

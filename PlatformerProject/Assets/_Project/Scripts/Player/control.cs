@@ -69,6 +69,7 @@ public class control : MonoBehaviour
     {
         anim.SetFloat("Speed", speed);
         Movement();
+        rigidBody.angularVelocity = Vector3.zero;
     }
 
     private void Movement()

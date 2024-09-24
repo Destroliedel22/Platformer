@@ -846,6 +846,17 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.001, y: 0.469, z: 0.002}
   m_TimeToStationary: 0.5
+--- !u!114 &79226714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1828924617073556136, guid: cfb3748eac929134392125aa454e94cf, type: 3}
+  m_PrefabInstance: {fileID: 3113663409078211302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e55b53b9336dc42bb225934a0d4360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &103409383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8118,8 +8129,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620760147}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.071913175, y: -0.7086498, z: 0.07300211, w: 0.6980793}
-  m_LocalPosition: {x: 9.184484, y: 6.887077, z: -0.594491}
+  m_LocalRotation: {x: 0.01959567, y: -0.61551917, z: 0.0153117385, w: 0.78772956}
+  m_LocalPosition: {x: -11.2400055, y: -0.28999996, z: -4.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9396,8 +9407,8 @@ Transform:
   m_GameObject: {fileID: 724595966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.45, z: -37.75}
-  m_LocalScale: {x: 7.4923477, y: 2.4547, z: 3.527778}
+  m_LocalPosition: {x: 0, y: -3.45, z: -25.5}
+  m_LocalScale: {x: 7.4923477, y: 2.4547, z: 1.7954068}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -15248,7 +15259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1304222103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15264,7 +15275,7 @@ MonoBehaviour:
   m_Path: {fileID: 859557288}
   m_UpdateMethod: 0
   m_PositionUnits: 1
-  m_Speed: 0
+  m_Speed: 5
   m_Position: 0
 --- !u!4 &1304222104
 Transform:
@@ -15288,12 +15299,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1304222102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b114d6ed8d03ddf47831e402eef14aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
+  startLevel: {fileID: 79226714}
 --- !u!1001 &1311967307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24803,9 +24815,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1828924617073556136, guid: cfb3748eac929134392125aa454e94cf, type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 1111733706}
+    - target: {fileID: 1828924617073556136, guid: cfb3748eac929134392125aa454e94cf, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 388643669}
+    - target: {fileID: 1828924617073556136, guid: cfb3748eac929134392125aa454e94cf, type: 3}
+      propertyPath: parkourCam
+      value: 
+      objectReference: {fileID: 620760148}
+    - target: {fileID: 1828924617073556136, guid: cfb3748eac929134392125aa454e94cf, type: 3}
+      propertyPath: cinemachineDollyCart
+      value: 
+      objectReference: {fileID: 1304222103}
     - target: {fileID: 2241686567472503081, guid: cfb3748eac929134392125aa454e94cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.768002

@@ -14,7 +14,6 @@ public class Crown : PickUp
     {
         ScoreManager.Instance.crownAmount++;
         Crowns.text = "Crowns:" + ScoreManager.Instance.crownAmount;
-        //startRing.GetComponent<StartLevel>().CrownPickedUp = true;
         base.Activate();
     }
 }
