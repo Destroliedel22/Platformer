@@ -31,6 +31,12 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public int crownAmount = 0;
-    public int coinAmount = 0;
+    public int crownAmount;
+    public int coinAmount;
+
+    private void Start()
+    {
+        crownAmount = 0; 
+        coinAmount = 0;
+    }
 }

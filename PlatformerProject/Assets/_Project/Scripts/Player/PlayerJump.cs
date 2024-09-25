@@ -17,7 +17,12 @@ public class PlayerJump : MonoBehaviour
     public float downForce;
     private float beginDownForce;
 
-    public Animator anim;
+    Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     private void Start()
     {
@@ -50,11 +55,11 @@ public class PlayerJump : MonoBehaviour
         if (direction == 1 && isGrounded)
         {
             anim.SetBool("Jumping", true);
-            rigidBody.AddForce(Vector3.up * force);
             isGrounded = false;
             downForce = beginDownForce;
+            rigidBody.AddForce(Vector3.up * force);
         }
-        else if(direction == 0)
+        if(direction == 0)
         {
             anim.SetBool("Jumping", false);
         }
@@ -69,26 +74,26 @@ public class PlayerJump : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if(other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
-        if(collision.gameObject.CompareTag("MovingPlatform"))
+        if(other.gameObject.CompareTag("MovingPlatform"))
         {
             isGrounded = true;
-            this.gameObject.transform.SetParent(collision.transform, true);
+            this.gameObject.transform.SetParent(other.transform, true);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
-        if (collision.gameObject.CompareTag("MovingPlatform"))
+        if (other.gameObject.CompareTag("MovingPlatform"))
         {
             isGrounded = false;
             this.gameObject.transform.SetParent(null, true);

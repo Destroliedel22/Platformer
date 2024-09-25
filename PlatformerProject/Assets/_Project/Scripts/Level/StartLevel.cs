@@ -20,17 +20,11 @@ public class StartLevel : MonoBehaviour
 
     public GameObject coinsAndCrown;
 
-    public GameObject player;
-
     public TextMeshProUGUI timerText;
 
     public float click;
 
     public control control;
-
-    public CinemachineFreeLook playerCam;
-    public CinemachineVirtualCamera parkourCam;
-    public CinemachineDollyCart cinemachineDollyCart;
 
     private void Awake()
     {
@@ -61,17 +55,6 @@ public class StartLevel : MonoBehaviour
         {
             Timer();
             timerGoing = true;
-            playerCam.gameObject.SetActive(false);
-            parkourCam.gameObject.SetActive(true);
-            if(control.direction.y >= 0.1f)
-            {
-                cinemachineDollyCart.gameObject.SetActive(true);
-                cinemachineDollyCart.m_Speed = 1;
-            }
-            else
-            {
-                cinemachineDollyCart.m_Speed = 0;
-            }
         }
     }
 
