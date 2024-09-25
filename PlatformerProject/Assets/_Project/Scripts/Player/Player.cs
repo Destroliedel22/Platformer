@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public RectTransform Health;
     public TextMeshProUGUI HPText;
 
+    public GameObject playerCanvas;
+    public GameObject deathCanvas;
+
     private void FixedUpdate()
     {
         Health.sizeDelta = new Vector2(playerHealth, Health.rect.height);
@@ -22,7 +25,9 @@ public class Player : MonoBehaviour
 
         if(playerHealth <= 0)
         {
-            Debug.Log("You Died");
+            Time.timeScale = 0;
+            playerCanvas.SetActive(false);
+            deathCanvas.SetActive(true);
         }
     }
 
