@@ -1,11 +1,14 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Alien : NPC
 {
+    public ScriptableObject AlienStats;
+
     private enum AlienState
     {
         idle,
@@ -19,17 +22,35 @@ public class Alien : NPC
 
     private Rigidbody rb;
     private Animator anim;
+    public GameObject playerObject;
+    private Player player;
 
     Vector3 RandomDestination;
-    public float destinationReachedThreshold = 1.0f;
+    [SerializeField] float destinationReachedThreshold;
 
+    [Header("timers")]
     public float idleTimer;
+    public float roamingTimer;
+    public float attackTimer;
+
+    [Header("Detecting Range")]
+    [SerializeField] float distance;
+    [SerializeField] float followReachedThreshold;
+    [SerializeField] float runReachedThreshold;
+    [SerializeField] float attackReachedThreshold;
+
+    bool noStamina;
+    bool coroutineActive;
+    bool attackCoroutineActive;
+
+    float switchHands;
 
     private void Awake()
     {
         anim = this.gameObject.GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody>();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
+        player = playerObject.gameObject.GetComponent<Player>();
     }
 
     private void Start()
@@ -37,6 +58,8 @@ public class Alien : NPC
         state = AlienState.idle;
         health = 200;
         Stamina = 100;
+
+        switchHands = anim.GetFloat("SwitchHand");
     }
 
     private void Update()
@@ -58,17 +81,36 @@ public class Alien : NPC
             case AlienState.attacking:
                 Attack();
                 break;
-            case AlienState.death:
-                Death();
-                break;
         }
     }
 
     private void FixedUpdate()
     {
-        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold)
+        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold && state == AlienState.roaming)
         {
             RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
+        }
+        distanceToPlayer();
+    }
+
+    private void distanceToPlayer()
+    {
+        distance = Vector3.Distance(this.transform.position, playerObject.transform.position);
+        if (distance < attackReachedThreshold)
+        {
+            state = AlienState.attacking;
+        }
+        else if (distance < runReachedThreshold && !noStamina)
+        {
+            state = AlienState.running;
+        }
+        else if(distance < followReachedThreshold && !noStamina)
+        {
+            state= AlienState.following;
+        }
+        else if(distance > followReachedThreshold)
+        {
+             state = AlienState.roaming;
         }
     }
 
@@ -77,51 +119,91 @@ public class Alien : NPC
         anim.SetFloat("Blend", 0);
         rb.velocity = new Vector3(0, 0, 0);
         StartCoroutine(SwitchToRoaming());
+        Stamina = 100;
     }
 
     private void Roaming()
     {
         anim.SetFloat("Blend", 2);
         agent.SetDestination(RandomDestination);
-        //walk
-        //StartCoroutine(SwitchToIdle());
+        agent.speed = 2;
+        StartCoroutine(SwitchToIdle());
     }
 
     private void Follow()
     {
         anim.SetFloat("Blend", 2);
-        //on detecting player follow him on roaming speed
-        //switch to running when near player
+        agent.SetDestination(playerObject.transform.position);
+        agent.speed = 2;
     }
 
     private void Running()
     {
         anim.SetFloat("Blend", 5);
-        //follow player with higher speed
-        //switch to attack when really near player
-        //if stamina > 0 keep running otherwise switch to walking
+        agent.SetDestination(playerObject.transform.position);
+        agent.speed = 3.5f;
+        if(!coroutineActive)
+        {
+            StartCoroutine(StaminaLosing());
+            coroutineActive = true;
+        }
+        if(Stamina <= 0)
+        {
+            StartCoroutine(OutOfStamina());
+            noStamina = true;
+            StopCoroutine(StaminaLosing());
+            coroutineActive = false;
+        }
     }
 
     private void Attack()
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 1f);
-        //attack animation while still running or standing still
-        //deal dmg to player when hit
-        //switch between attack animation and fighting stance
-        //switch to running or following depending on range to player
-        //if stamina is 0 fighting stance
-    }
-
-    private void Death()
-    {
-        //every time enemy takes dmg check if health > 0
-        //death animation
-        //all other layers off
+        anim.speed = 1f;
+        anim.SetBool("Attacking", true);
+        if(!attackCoroutineActive && Stamina > 0)
+        {
+            attackCoroutineActive = true;
+            StartCoroutine(WaitToAttack());
+        }
+        if(Stamina <= 0)
+        {
+            switchHands = 0;
+        }
     }
 
     IEnumerator SwitchToRoaming()
     {
         yield return new WaitForSeconds(idleTimer);
         state = AlienState.roaming;
+    }
+
+    IEnumerator SwitchToIdle()
+    {
+        roamingTimer = Random.Range(5, 20);
+        yield return new WaitForSeconds(roamingTimer);
+    }
+
+    IEnumerator StaminaLosing()
+    {
+        yield return new WaitForSeconds(1f);
+        Stamina -= 10;
+        coroutineActive = false;
+    }
+
+    IEnumerator OutOfStamina()
+    {
+        yield return new WaitForSeconds(5f);
+        state = AlienState.idle;
+    }
+
+    IEnumerator WaitToAttack()
+    {
+        yield return new WaitForSeconds(attackTimer);
+        anim.SetInteger("SwitchHand", 1);
+        Stamina -= 20;
+        yield return new WaitForSeconds(1.5f);
+        anim.SetInteger("SwitchHand", 0);
+        attackCoroutineActive = false;
     }
 }

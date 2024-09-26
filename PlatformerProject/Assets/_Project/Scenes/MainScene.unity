@@ -318,6 +318,10 @@ PrefabInstance:
       value: garden_001 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2343511670886382376, guid: 7199bfe68ad73dc46bf4497f5ff68cf9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2343511670886382376, guid: 7199bfe68ad73dc46bf4497f5ff68cf9, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -377,7 +381,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5150649960276665181, guid: 7199bfe68ad73dc46bf4497f5ff68cf9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -484,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -627,6 +636,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -1600,9 +1613,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_003 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3133586642872515879, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 10680037958872530, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
     - {fileID: -3682997544686781183, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
+    - {fileID: -8847531232769862578, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1688,6 +1706,10 @@ PrefabInstance:
     - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_Name
       value: fir_001 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6857936837196030248, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_LocalScale.x
@@ -1924,6 +1946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_003 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3133586642872515879, guid: 53f06acb033d2734aa527f724f83e0f0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1976,6 +2002,10 @@ PrefabInstance:
     - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_Name
       value: grass_002 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
@@ -2032,6 +2062,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2093,6 +2124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_004 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3785548898020437044, guid: 33a4f60e865635c4586b368b90e39a4d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4594560051499333262, guid: 33a4f60e865635c4586b368b90e39a4d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -2148,6 +2183,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5092712374053931918, guid: 33a4f60e865635c4586b368b90e39a4d, type: 3}
     - {fileID: 4003908745548501138, guid: 33a4f60e865635c4586b368b90e39a4d, type: 3}
+    - {fileID: 5273757783798722916, guid: 33a4f60e865635c4586b368b90e39a4d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2168,6 +2204,10 @@ PrefabInstance:
     - target: {fileID: 573185007604139326, guid: ff334e6b8ab1e5b498e0332c94aca31c, type: 3}
       propertyPath: m_Name
       value: flower_006
+      objectReference: {fileID: 0}
+    - target: {fileID: 573185007604139326, guid: ff334e6b8ab1e5b498e0332c94aca31c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 918606878787985284, guid: ff334e6b8ab1e5b498e0332c94aca31c, type: 3}
       propertyPath: m_LocalScale.x
@@ -2243,6 +2283,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_001 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -2298,6 +2342,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2318,6 +2363,10 @@ PrefabInstance:
     - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_Name
       value: grass_001 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
@@ -2374,6 +2423,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2394,6 +2444,10 @@ PrefabInstance:
     - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_Name
       value: apple_001 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
@@ -2451,7 +2505,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2527,6 +2582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -2583,7 +2642,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2695,6 +2755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -2751,7 +2815,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3278,6 +3343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hive_001
       objectReference: {fileID: 0}
+    - target: {fileID: 6709867787019080676, guid: 3468de1f85f666b4d8d2419b645058d2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3299,6 +3368,10 @@ PrefabInstance:
     - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_Name
       value: grass_002 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
@@ -3355,6 +3428,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3753,7 +3827,8 @@ PrefabInstance:
       propertyPath: playerHead
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8046877997513084260, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8612710641508208796, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     - {fileID: 5869634122547408973, guid: cfb3748eac929134392125aa454e94cf, type: 3}
@@ -4198,6 +4273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_006 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 573185007604139326, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 918606878787985284, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -4253,6 +4332,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6670709988337663156, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
     - {fileID: -6299569013017908640, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
+    - {fileID: 199397058092125454, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4273,6 +4353,10 @@ PrefabInstance:
     - target: {fileID: 265257451114721213, guid: b037cd0fa35bc874e921c2c3e43188db, type: 3}
       propertyPath: m_Name
       value: flower_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 265257451114721213, guid: b037cd0fa35bc874e921c2c3e43188db, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 641114868699084039, guid: b037cd0fa35bc874e921c2c3e43188db, type: 3}
       propertyPath: m_LocalScale.x
@@ -4329,6 +4413,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -418282896497854519, guid: b037cd0fa35bc874e921c2c3e43188db, type: 3}
     - {fileID: -9019908443019847880, guid: b037cd0fa35bc874e921c2c3e43188db, type: 3}
+    - {fileID: -4363506199206069171, guid: b037cd0fa35bc874e921c2c3e43188db, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4349,6 +4434,10 @@ PrefabInstance:
     - target: {fileID: 3785548898020437044, guid: dd6f4bd8f2589fd4a9711cdc3d39649f, type: 3}
       propertyPath: m_Name
       value: flower_004 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785548898020437044, guid: dd6f4bd8f2589fd4a9711cdc3d39649f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4594560051499333262, guid: dd6f4bd8f2589fd4a9711cdc3d39649f, type: 3}
       propertyPath: m_LocalScale.x
@@ -4538,6 +4627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_005 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8396620350610636035, guid: dd336d205f2de224bb0870d5cf96b7fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9209044387357927353, guid: dd336d205f2de224bb0870d5cf96b7fc, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -4611,6 +4704,10 @@ PrefabInstance:
     - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_Name
       value: fir_001 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6857936837196030248, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_LocalScale.x
@@ -4819,6 +4916,10 @@ PrefabInstance:
     - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_Name
       value: fir_001 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6857936837196030248, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_LocalScale.x
@@ -5352,6 +5453,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -5408,7 +5513,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5595,6 +5701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -5651,7 +5761,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5901,6 +6012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5979,6 +6094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_001
       objectReference: {fileID: 0}
+    - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6000,6 +6119,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -6460,7 +6583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d49343c3fab11140956d7f3fc490c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   Stamina: 0
   health: 0
   agent: {fileID: 0}
@@ -6676,6 +6798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -6732,7 +6858,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6878,6 +7005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -6934,7 +7065,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7250,6 +7382,10 @@ PrefabInstance:
     - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_Name
       value: fir_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6857936837196030248, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_LocalScale.x
@@ -8044,6 +8180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pit_001
       objectReference: {fileID: 0}
+    - target: {fileID: 4384097890652722780, guid: 5519db05a03d9684aa75ac4eff90a9ef, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8670,6 +8810,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_001 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8769,6 +8913,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -8955,6 +9103,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -10307,6 +10459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_002 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.06673477
@@ -10899,6 +11055,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_002 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.06673477
@@ -11389,6 +11549,10 @@ PrefabInstance:
       value: garden_001
       objectReference: {fileID: 0}
     - target: {fileID: 2343511670886382376, guid: 7199bfe68ad73dc46bf4497f5ff68cf9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2343511670886382376, guid: 7199bfe68ad73dc46bf4497f5ff68cf9, type: 3}
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
@@ -11448,7 +11612,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5150649960276665181, guid: 7199bfe68ad73dc46bf4497f5ff68cf9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11469,6 +11634,10 @@ PrefabInstance:
     - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_Name
       value: grass_001 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
@@ -11525,6 +11694,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11704,6 +11874,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_003
       objectReference: {fileID: 0}
+    - target: {fileID: 3133586642872515879, guid: 53f06acb033d2734aa527f724f83e0f0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11725,6 +11899,10 @@ PrefabInstance:
     - target: {fileID: 2545773698342526912, guid: 55beba3263a7af34096eb9d0026e695b, type: 3}
       propertyPath: m_Name
       value: flower_002 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545773698342526912, guid: 55beba3263a7af34096eb9d0026e695b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2891230818067105146, guid: 55beba3263a7af34096eb9d0026e695b, type: 3}
       propertyPath: m_LocalScale.x
@@ -11781,6 +11959,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -1058205176657181151, guid: 55beba3263a7af34096eb9d0026e695b, type: 3}
     - {fileID: -8263605879228236662, guid: 55beba3263a7af34096eb9d0026e695b, type: 3}
+    - {fileID: -5709639188050670619, guid: 55beba3263a7af34096eb9d0026e695b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11892,6 +12071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_005 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8396620350610636035, guid: d283256d491e6494caab2fea31475710, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9209044387357927353, guid: d283256d491e6494caab2fea31475710, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -11947,6 +12130,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -7207466588310695854, guid: d283256d491e6494caab2fea31475710, type: 3}
     - {fileID: 4379193436617450430, guid: d283256d491e6494caab2fea31475710, type: 3}
+    - {fileID: -1431337353226949298, guid: d283256d491e6494caab2fea31475710, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12130,6 +12314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_002 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -12185,6 +12373,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12321,6 +12510,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -13033,6 +13226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_002 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.06673477
@@ -13112,6 +13309,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -13650,7 +13851,6 @@ GameObject:
   - component: {fileID: 1193795890}
   - component: {fileID: 1193795889}
   - component: {fileID: 1193795888}
-  - component: {fileID: 1193795891}
   m_Layer: 0
   m_Name: StarCanvas
   m_TagString: Untagged
@@ -13742,18 +13942,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1193795891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193795886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c248aaccdc2a34ea45f3dcc2ae267c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1195759645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14105,6 +14293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_004
       objectReference: {fileID: 0}
+    - target: {fileID: 3785548898020437044, guid: dd6f4bd8f2589fd4a9711cdc3d39649f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4594560051499333262, guid: dd6f4bd8f2589fd4a9711cdc3d39649f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -14179,6 +14371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_001 1
       objectReference: {fileID: 0}
+    - target: {fileID: 265257451114721213, guid: 843456ccc4cc16841ad4bb2cedb3ba5c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 641114868699084039, guid: 843456ccc4cc16841ad4bb2cedb3ba5c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -14234,6 +14430,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -418282896497854519, guid: 843456ccc4cc16841ad4bb2cedb3ba5c, type: 3}
     - {fileID: 9011717989539750334, guid: 843456ccc4cc16841ad4bb2cedb3ba5c, type: 3}
+    - {fileID: -4363506199206069171, guid: 843456ccc4cc16841ad4bb2cedb3ba5c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14345,6 +14542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fir_001 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6857936837196030248, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -14418,6 +14619,10 @@ PrefabInstance:
     - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_Name
       value: fir_001 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081998714590919570, guid: 1dc397d5083450849beaf15114237345, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6857936837196030248, guid: 1dc397d5083450849beaf15114237345, type: 3}
       propertyPath: m_LocalScale.x
@@ -14546,6 +14751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_002 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -14601,6 +14810,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14621,6 +14831,10 @@ PrefabInstance:
     - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_Name
       value: grass_002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
@@ -14677,6 +14891,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14804,6 +15019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_001 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -14859,6 +15078,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14879,6 +15099,10 @@ PrefabInstance:
     - target: {fileID: 8396620350610636035, guid: dd336d205f2de224bb0870d5cf96b7fc, type: 3}
       propertyPath: m_Name
       value: flower_005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396620350610636035, guid: dd336d205f2de224bb0870d5cf96b7fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9209044387357927353, guid: dd336d205f2de224bb0870d5cf96b7fc, type: 3}
       propertyPath: m_LocalScale.x
@@ -15033,6 +15257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -15088,6 +15316,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15218,6 +15447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -15274,7 +15507,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15464,6 +15698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -15520,7 +15758,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15720,6 +15959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_002
       objectReference: {fileID: 0}
+    - target: {fileID: 2481290256536462648, guid: 6ecd378c508331f48af0325d196d4c26, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2964636270775385986, guid: 6ecd378c508331f48af0325d196d4c26, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -15794,6 +16037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -15850,7 +16097,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16003,6 +16251,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: apple_001 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5929855992756650978, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6413341610075691352, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.04004086
@@ -16059,7 +16311,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2080026509591140742, guid: 8a58f65bcfb59b44690ff02069f83150, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16131,6 +16384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_001 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -16186,6 +16443,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -16486,6 +16744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_002 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -16541,6 +16803,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17225,9 +17488,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_003 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3133586642872515879, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 10680037958872530, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
     - {fileID: -3682997544686781183, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
+    - {fileID: -8847531232769862578, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -17248,6 +17516,10 @@ PrefabInstance:
     - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_Name
       value: grass_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
@@ -17304,6 +17576,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -18402,6 +18675,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_002 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.06673477
@@ -18978,6 +19255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_001 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19303,7 +19584,8 @@ PrefabInstance:
       propertyPath: Coins
       value: 
       objectReference: {fileID: 1966374015}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8046877997513084260, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3278518649718407793, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     - {fileID: 5869634122547408973, guid: cfb3748eac929134392125aa454e94cf, type: 3}
@@ -19803,6 +20085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_001 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7424497631163114572, guid: 4e09086f29998a74e88b46e1081ddf70, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7801023930395049718, guid: 4e09086f29998a74e88b46e1081ddf70, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -19876,6 +20162,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -19953,7 +20243,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7149739622711274044}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -19963,7 +20253,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.9
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -19979,7 +20269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d49343c3fab11140956d7f3fc490c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   Stamina: 0
   health: 0
   agent: {fileID: 1754391153}
@@ -19996,6 +20285,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -20691,6 +20984,10 @@ PrefabInstance:
     - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
       propertyPath: m_Name
       value: carrot_001 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21741,6 +22038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_001 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3055941711738611748, guid: 92f940a2f5bbc1f4ebf3be52dcb35b00, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21967,6 +22268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree_001
       objectReference: {fileID: 0}
+    - target: {fileID: 7424497631163114572, guid: 4e09086f29998a74e88b46e1081ddf70, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7801023930395049718, guid: 4e09086f29998a74e88b46e1081ddf70, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -22113,6 +22418,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -22448,6 +22757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: carrot_002 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.06673477
@@ -22663,6 +22976,10 @@ PrefabInstance:
     - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_Name
       value: carrot_002 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090364762281060554, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8866865623866143344, guid: cd6e26071d712fe458c5d148c0813ea1, type: 3}
       propertyPath: m_LocalScale.x
@@ -23328,6 +23645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_001 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -23383,6 +23704,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23403,6 +23725,10 @@ PrefabInstance:
     - target: {fileID: 8396620350610636035, guid: d283256d491e6494caab2fea31475710, type: 3}
       propertyPath: m_Name
       value: flower_005 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396620350610636035, guid: d283256d491e6494caab2fea31475710, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9209044387357927353, guid: d283256d491e6494caab2fea31475710, type: 3}
       propertyPath: m_LocalScale.x
@@ -23459,6 +23785,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -7207466588310695854, guid: d283256d491e6494caab2fea31475710, type: 3}
     - {fileID: 4379193436617450430, guid: d283256d491e6494caab2fea31475710, type: 3}
+    - {fileID: -1431337353226949298, guid: d283256d491e6494caab2fea31475710, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23574,6 +23901,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_002 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -23629,6 +23960,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23649,6 +23981,10 @@ PrefabInstance:
     - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_Name
       value: grass_001 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364223190473508849, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9176189800341986635, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
       propertyPath: m_LocalScale.x
@@ -23705,6 +24041,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -3297558385708553891, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     - {fileID: 4481138030339655630, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
+    - {fileID: 9110949498740691909, guid: abb682e58a6492843a8653ab709a8c4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -23725,6 +24062,10 @@ PrefabInstance:
     - target: {fileID: 2545773698342526912, guid: 1aa7bf0f84c9d5d4d8d2839394086be8, type: 3}
       propertyPath: m_Name
       value: flower_002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545773698342526912, guid: 1aa7bf0f84c9d5d4d8d2839394086be8, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2891230818067105146, guid: 1aa7bf0f84c9d5d4d8d2839394086be8, type: 3}
       propertyPath: m_LocalScale.x
@@ -23890,6 +24231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_006 1
       objectReference: {fileID: 0}
+    - target: {fileID: 573185007604139326, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 918606878787985284, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -23945,6 +24290,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -6670709988337663156, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
     - {fileID: -6299569013017908640, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
+    - {fileID: 199397058092125454, guid: 7ff500e2ac630eb42b03cd2e960d8434, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24018,9 +24364,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: flower_003 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3133586642872515879, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 10680037958872530, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
     - {fileID: -3682997544686781183, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
+    - {fileID: -8847531232769862578, guid: c83e0d57c0b5e1d45bcbbd6bbff8e20e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -24234,6 +24585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: grass_002 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7208981220813404953, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8016586098119221667, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13346952
@@ -24289,6 +24644,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -2715570312237431660, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     - {fileID: -3972701936035562852, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
+    - {fileID: 2039371015237841261, guid: 53ff7029992b2b54c8aac96d9b828ef1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -26001,6 +26357,7 @@ PrefabInstance:
     - {fileID: 4915573209271965087, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     - {fileID: 4917459972312352368, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     - {fileID: 395167090973331653, guid: cfb3748eac929134392125aa454e94cf, type: 3}
+    - {fileID: 8046877997513084260, guid: cfb3748eac929134392125aa454e94cf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6290602180795867851, guid: cfb3748eac929134392125aa454e94cf, type: 3}
@@ -27626,14 +27983,14 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -27649,12 +28006,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11c7a9aae6704e40b53f289395f8967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   Stamina: 0
   health: 0
-  agent: {fileID: 0}
+  agent: {fileID: 5720402915558461872}
+  AlienStats: {fileID: 11400000, guid: 7d3c120ad2839e44b8129467d5292f08, type: 2}
+  playerObject: {fileID: 2007393565}
   destinationReachedThreshold: 1
-  idleTimer: 0
+  idleTimer: 2
+  roamingTimer: 0
+  attackTimer: 3
+  distance: 0
+  followReachedThreshold: 8
+  runReachedThreshold: 4
+  attackReachedThreshold: 1
 --- !u!195 &5720402915558461872
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -27665,7 +28029,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -28834,6 +29198,7 @@ GameObject:
   - component: {fileID: 8989876972202407382}
   - component: {fileID: 8989876972202407383}
   - component: {fileID: 8989876972202407384}
+  - component: {fileID: 8989876972202407385}
   m_Layer: 0
   m_Name: SpawnGround
   m_TagString: Ground
@@ -29876,6 +30241,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.6104727, y: 2.3784044, z: 16.229712}
   m_Center: {x: 0.022411069, y: 1.1738106, z: -0.054118745}
+--- !u!114 &8989876972202407385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476689007300645891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: -1372625422
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: cc4e27d811937d14f96102e7c0646778, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &9008841988821168300
 GameObject:
   m_ObjectHideFlags: 0
@@ -30159,6 +30555,7 @@ SceneRoots:
   - {fileID: 724595971}
   - {fileID: 1111733705}
   - {fileID: 303456461}
+  - {fileID: 1515565157}
   - {fileID: 620139636}
   - {fileID: 501878206}
   - {fileID: 1930558254}
@@ -30169,4 +30566,3 @@ SceneRoots:
   - {fileID: 5720402915558461867}
   - {fileID: 1742298669}
   - {fileID: 2007393566}
-  - {fileID: 1515565157}
