@@ -5,14 +5,24 @@ using UnityEngine;
 
 public class Crown : PickUp
 {
-    public GameObject playerScript;
     public TextMeshProUGUI Crowns;
 
     public GameObject startRing;
 
+    bool crownPickedUp;
+
+    private void Start()
+    {
+        crownPickedUp = false;
+    }
+
     public override void Activate()
     {
-        ScoreManager.Instance.crownAmount++;
+        if(!crownPickedUp)
+        {
+            ScoreManager.Instance.crownAmount++;
+            crownPickedUp = true;
+        }
         Crowns.text = "Crowns:" + ScoreManager.Instance.crownAmount;
         base.Activate();
     }

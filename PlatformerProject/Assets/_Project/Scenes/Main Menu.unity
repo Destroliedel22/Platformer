@@ -5831,7 +5831,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: OwnMadeCharacter
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2971388043658923116, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
+    - {fileID: 3560640200950931323, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7432110444671710793, guid: 97b021925deee7d4ea1276a55e9b5447, type: 3}
     m_AddedGameObjects: []
