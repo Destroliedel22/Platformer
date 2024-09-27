@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,15 @@ public class Player : MonoBehaviour
     public GameObject playerCanvas;
     public GameObject deathCanvas;
 
+    bool isDead;
+
+    Animator anim;
+
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     private void FixedUpdate()
     {
         Health.sizeDelta = new Vector2(playerHealth, Health.rect.height);
@@ -23,9 +33,10 @@ public class Player : MonoBehaviour
             playerHealth = 200;
         }
 
-        if(playerHealth <= 0)
+        if(playerHealth <= 0 && isDead == false)
         {
-            Time.timeScale = 0;
+            isDead = true;
+            anim.SetTrigger("Dead");
             playerCanvas.SetActive(false);
             deathCanvas.SetActive(true);
         }
