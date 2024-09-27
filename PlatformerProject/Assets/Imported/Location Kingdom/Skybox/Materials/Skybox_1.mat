@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: 4800000, guid: 65acc524ed632c5499dce26d2b00b8cc, type: 3}
-  m_Parent: {fileID: 2100000, guid: f55c24b1f9f584f4b9bb6da2592fec29, type: 2}
+  m_Name: Skybox_1
+  m_Shader: {fileID: 103, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -23,19 +23,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
+    - _Tex:
+        m_Texture: {fileID: 8900000, guid: 3dc0be45de6698f4b886721e75141c51, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Depth: -0.24
-    - _DepthMultiply: 0.9
-    - _FoamDistortionAmount: 0.03
-    - _RefractionStr: 0.04
-    - _Smoothness: 0
-    - _WaveBigPower: 3.8
-    - _WaveSmallScale: 1.6
-    - _WavesMultiply: 3
-    m_Colors: []
+    - _Exposure: 1
+    - _Rotation: 0
+    m_Colors:
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []
