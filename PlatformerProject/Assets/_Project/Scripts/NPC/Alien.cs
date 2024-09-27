@@ -162,7 +162,6 @@ public class Alien : NPC
         agent.speed = 0;
         if(!attackCoroutineActive && Stamina > 0)
         {
-            Debug.Log("attack");
             anim.SetBool("Attacking", true);
             attackCoroutineActive = true;
             StartCoroutine(WaitToAttack());

@@ -1,4 +1,3 @@
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,9 +23,7 @@ public class Coin : PickUp
     public override void Activate()
     {
         ScoreManager.Instance.coinAmount++;
-        //ParticleSystem.Play();
         Coins.text = "Coins:" + ScoreManager.Instance.coinAmount;
-        //StartCoroutine(WaitToDestroy());
         base.Activate();
     }
 }
