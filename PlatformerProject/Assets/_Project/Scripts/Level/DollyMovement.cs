@@ -41,27 +41,4 @@ public class DollyMovement : MonoBehaviour
     {
         direction = value.ReadValue<Vector2>().normalized;
     }
-
-
-    private void FixedUpdate()
-    {
-        if (startLevel.timerGoing)
-        {
-            //if(direction.y >= 0.1f)
-            //{
-            //    director.Play();
-            //    director.Resume();
-            //}
-            //else if(direction.y <= -0.1f)
-            //{
-            //    director.time--;
-            //}
-            //else
-            //{
-            //    director.Stop();
-            //}
-
-            CinemachineDollyCart.gameObject.SetActive(true);
-        }
-    }
 }

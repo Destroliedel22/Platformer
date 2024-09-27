@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
             anim.SetTrigger("Dead");
             playerCanvas.SetActive(false);
             deathCanvas.SetActive(true);
+            this.gameObject.GetComponent<control>().enabled = false;
+            this.gameObject.GetComponent<PlayerJump>().enabled = false;
         }
     }
 
