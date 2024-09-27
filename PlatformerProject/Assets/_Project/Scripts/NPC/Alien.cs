@@ -41,9 +41,7 @@ public class Alien : NPC
 
     bool noStamina;
     bool coroutineActive;
-    bool attackCoroutineActive;
-
-    float switchHands;
+    [SerializeField] bool attackCoroutineActive;
 
     private void Awake()
     {
@@ -56,10 +54,7 @@ public class Alien : NPC
     private void Start()
     {
         state = AlienState.idle;
-        health = 200;
         Stamina = 100;
-
-        switchHands = anim.GetFloat("SwitchHand");
     }
 
     private void Update()
@@ -112,6 +107,10 @@ public class Alien : NPC
         {
              state = AlienState.roaming;
         }
+        else if(distance > attackReachedThreshold)
+        {
+            anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
+        }
     }
 
     private void Idle()
@@ -160,16 +159,21 @@ public class Alien : NPC
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 1f);
         anim.speed = 1f;
-        anim.SetBool("Attacking", true);
+        agent.speed = 0;
         if(!attackCoroutineActive && Stamina > 0)
         {
+            Debug.Log("attack");
+            anim.SetBool("Attacking", true);
             attackCoroutineActive = true;
             StartCoroutine(WaitToAttack());
+            Stamina -= 20;
         }
         if(Stamina <= 0)
         {
-            switchHands = 0;
+            anim.SetBool("Attacking", false);
+            StartCoroutine(OutOfStamina());
         }
+        this.gameObject.transform.LookAt(playerObject.transform.position);
     }
 
     IEnumerator SwitchToRoaming()
@@ -200,10 +204,8 @@ public class Alien : NPC
     IEnumerator WaitToAttack()
     {
         yield return new WaitForSeconds(attackTimer);
-        anim.SetInteger("SwitchHand", 1);
-        Stamina -= 20;
-        yield return new WaitForSeconds(1.5f);
-        anim.SetInteger("SwitchHand", 0);
+        anim.SetBool("Attacking", false);
         attackCoroutineActive = false;
+        player.playerHealth -= 40;
     }
 }
