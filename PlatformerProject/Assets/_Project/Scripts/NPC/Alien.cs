@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Alien : NPC
 {
-    public ScriptableObject AlienStats;
-
     private enum AlienState
     {
         idle,
@@ -20,9 +19,12 @@ public class Alien : NPC
     }
     private AlienState state;
 
+    [SerializeField] int damage;
+
     private Rigidbody rb;
     private Animator anim;
     public GameObject playerObject;
+    public DamageCanvas Dc;
     private Player player;
 
     Vector3 RandomDestination;
@@ -42,6 +44,8 @@ public class Alien : NPC
     bool noStamina;
     bool coroutineActive;
     [SerializeField] bool attackCoroutineActive;
+
+    public Image image;
 
     private void Awake()
     {
@@ -116,7 +120,7 @@ public class Alien : NPC
     private void Idle()
     {
         anim.SetFloat("Blend", 0);
-        rb.velocity = new Vector3(0, 0, 0);
+        rb.velocity = Vector3.zero;
         StartCoroutine(SwitchToRoaming());
         Stamina = 100;
     }
@@ -185,6 +189,7 @@ public class Alien : NPC
     {
         roamingTimer = Random.Range(5, 20);
         yield return new WaitForSeconds(roamingTimer);
+        StopCoroutine(SwitchToIdle());
     }
 
     IEnumerator StaminaLosing()
@@ -205,6 +210,14 @@ public class Alien : NPC
         yield return new WaitForSeconds(attackTimer);
         anim.SetBool("Attacking", false);
         attackCoroutineActive = false;
-        player.playerHealth -= 40;
+    }
+
+    public void DealDmg()
+    {
+        if(distance < 1)
+        {
+            player.playerHealth -= damage;
+            StartCoroutine(Dc.FadeIn(image));
+        }
     }
 }
