@@ -3,14 +3,31 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PineTree : ShakableTrees, IShakables
+public class Tree : MonoBehaviour
 {
+    public GameObject Fruit;
+    private Transform camera;
+
+    [SerializeField] private List<Transform> fruitSpawns = new List<Transform>();
+    private Transform fruitSpawn;
+
+    [SerializeField] private GameObject ShakeCanvas;
+
+    private int maxFruitAmount;
+
+    private bool shaken;
+
+    private void Awake()
+    {
+        camera = FindObjectOfType<Camera>().transform;
+    }
+
     public void Shake()
     {
-        Transform randomTransform = appleSpawns[Random.Range(0, appleSpawns.Count)];
-        appleSpawn = randomTransform;
-        Instantiate(PineApple, appleSpawn.position, Quaternion.identity, appleSpawn);
-        appleSpawns.Remove(appleSpawn);
+        Transform randomTransform = fruitSpawns[Random.Range(0, fruitSpawns.Count)];
+        fruitSpawn = randomTransform;
+        Instantiate(Fruit, fruitSpawn.position, Quaternion.identity, fruitSpawn);
+        fruitSpawns.Remove(fruitSpawn);
     }
 
     private void Update()
@@ -20,20 +37,21 @@ public class PineTree : ShakableTrees, IShakables
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.CompareTag("Player") && appleSpawns.Count > 0)
+        if(other.gameObject.CompareTag("Player") && fruitSpawns.Count > 0)
         {
             ShakeCanvas.SetActive(true);
             if (InteractInput.Instance.click == 1)
             {
-                if(shaken == false)
+                if(shaken == false && maxFruitAmount < 3)
                 {
                     Shake();
                     shaken = true;
                     StartCoroutine(WaitToShake());
+                    maxFruitAmount++;
                 }
             }
         }
-        else if(appleSpawns.Count == 0)
+        else if(fruitSpawns.Count == 0)
         {
             ShakeCanvas.SetActive(false);
         }

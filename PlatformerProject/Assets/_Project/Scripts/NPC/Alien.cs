@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Alien : NPC
 {
+    //volgorde variabele voldoet niet aan code convention
     private enum AlienState
     {
         idle,
@@ -23,17 +24,17 @@ public class Alien : NPC
 
     private Rigidbody rb;
     private Animator anim;
-    public GameObject playerObject;
+    public GameObject playerObject; //voldoet niet aan code convention
     public DamageCanvas Dc;
     private Player player;
 
-    Vector3 RandomDestination;
+    Vector3 RandomDestination; //voldoet niet aan code convention
     [SerializeField] float destinationReachedThreshold;
 
     [Header("timers")]
-    public float idleTimer;
-    public float roamingTimer;
-    public float attackTimer;
+    public float idleTimer;//voldoet niet aan code convention
+    public float roamingTimer;//voldoet niet aan code convention
+    public float attackTimer;//voldoet niet aan code convention
 
     [Header("Detecting Range")]
     [SerializeField] float distance;
@@ -45,7 +46,7 @@ public class Alien : NPC
     bool coroutineActive;
     [SerializeField] bool attackCoroutineActive;
 
-    public Image image;
+    public Image image;//voldoet niet aan code convention
 
     private void Awake()
     {
@@ -92,7 +93,7 @@ public class Alien : NPC
         distanceToPlayer();
     }
 
-    private void distanceToPlayer()
+    private void distanceToPlayer()//voldoet niet aan code convention
     {
         distance = Vector3.Distance(this.transform.position, playerObject.transform.position);
         if (distance < attackReachedThreshold)
