@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7093596902910410205}
   - component: {fileID: 7309209786731156567}
   - component: {fileID: 6970621121832039346}
+  - component: {fileID: -2941734062195324054}
   m_Layer: 0
   m_Name: PineApple
   m_TagString: Untagged
@@ -135,3 +136,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2941734062195324054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980182710524625147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a35f086502abef47b8c276de5baf6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

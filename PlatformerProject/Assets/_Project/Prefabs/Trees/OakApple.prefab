@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7725592426924900548}
   - component: {fileID: 7087955990706722729}
   - component: {fileID: 6651081235096375497}
+  - component: {fileID: -1529349183464911470}
   m_Layer: 0
   m_Name: OakApple
   m_TagString: Untagged
@@ -106,3 +107,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3999678221342150853, guid: 1cb0869a796fc6140be84f488bf1e68d, type: 3}
+--- !u!114 &-1529349183464911470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5709522465232228674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a35f086502abef47b8c276de5baf6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
