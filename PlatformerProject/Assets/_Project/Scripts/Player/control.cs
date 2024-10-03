@@ -1,30 +1,20 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class control : MonoBehaviour
 {
-    private Actionmap myPlayerMovement;
-
-    public Vector2 direction;
-
-    public Animator anim;
-
-    public float speed;
-    public float maxSpeed;
-
-    public float rotationSpeed = 5f;
-
-    bool walking = false;
-
-    public Rigidbody rigidBody;
-
     [SerializeField] private Camera cam;
+
+    public Vector2 Direction;
+    public float Speed;
+    public float MaxSpeed;
+    public float RotationSpeed = 5f;
+
+    private Rigidbody rigidBody;
+    private bool walking = false;
+    private Actionmap myPlayerMovement;
+    private Animator anim;
 
     private void Awake()
     {
@@ -39,9 +29,16 @@ public class control : MonoBehaviour
         myPlayerMovement.Controls.move.canceled += StopMove;
     }
 
+    private void FixedUpdate()
+    {
+        anim.SetFloat("Speed", Speed);
+        Movement();
+        rigidBody.angularVelocity = Vector3.zero;
+    }
+
     private void Move(InputAction.CallbackContext value)
     {
-        direction = value.ReadValue<Vector2>().normalized;
+        Direction = value.ReadValue<Vector2>().normalized;
         walking = true;
     }
 
@@ -61,36 +58,29 @@ public class control : MonoBehaviour
 
     private void StopMove(InputAction.CallbackContext value)
     {
-        direction = value.ReadValue<Vector2>().normalized;
+        Direction = value.ReadValue<Vector2>().normalized;
         walking = false;
-    }
-
-    private void FixedUpdate()
-    {
-        anim.SetFloat("Speed", speed);
-        Movement();
-        rigidBody.angularVelocity = Vector3.zero;
     }
 
     private void Movement()
     {
         if (walking)
         {
-            if (speed < maxSpeed)
+            if (Speed < MaxSpeed)
             {
                 StartCoroutine(Accelerate());
             }
         }
         else
         {
-            speed = 0;
+            Speed = 0;
         }
 
-        Vector3 moveDirection = GetCameraMoveDirection(direction);
+        Vector3 moveDirection = GetCameraMoveDirection(Direction);
 
         if (moveDirection.magnitude > 0.1f)
         {
-            rigidBody.AddForce(moveDirection * speed + new Vector3(0, rigidBody.velocity.y, 0));
+            rigidBody.AddForce(moveDirection * Speed + new Vector3(0, rigidBody.velocity.y, 0));
 
             RotatePlayer(moveDirection);
         }
@@ -119,12 +109,12 @@ public class control : MonoBehaviour
     {
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
 
-        rigidBody.rotation = Quaternion.Slerp(rigidBody.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        rigidBody.rotation = Quaternion.Slerp(rigidBody.rotation, targetRotation, RotationSpeed * Time.deltaTime);
     }
 
     IEnumerator Accelerate()
     {
-        speed++;
+        Speed++;
         yield return new WaitForSeconds(10f);
     }
 }
