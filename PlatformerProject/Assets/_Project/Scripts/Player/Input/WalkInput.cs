@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class WalkInput : MonoBehaviour
 {
-    public Vector2 Direction;
+    public Vector2 WalkDirection;
+    public float Sprinting;
     public bool walking = false;
 
     private static WalkInput instance;
@@ -45,17 +46,29 @@ public class WalkInput : MonoBehaviour
         myPlayerMovement.Controls.Enable();
         myPlayerMovement.Controls.move.performed += Move;
         myPlayerMovement.Controls.move.canceled += StopMove;
+        myPlayerMovement.Controls.sprint.performed += Sprint;
+        myPlayerMovement.Controls.sprint.canceled += StopSprint;
     }
 
     private void Move(InputAction.CallbackContext value)
     {
-        Direction = value.ReadValue<Vector2>().normalized;
+        WalkDirection = value.ReadValue<Vector2>().normalized;
         walking = true;
     }
 
     private void StopMove(InputAction.CallbackContext value)
     {
-        Direction = value.ReadValue<Vector2>().normalized;
+        WalkDirection = value.ReadValue<Vector2>().normalized;
         walking = false;
+    }
+
+    private void Sprint(InputAction.CallbackContext value)
+    {
+        Sprinting = value.ReadValue<float>();
+    }
+
+    private void StopSprint(InputAction.CallbackContext value)
+    {
+        Sprinting = value.ReadValue<float>();
     }
 }

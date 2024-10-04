@@ -24,7 +24,12 @@ public class control : MonoBehaviour
     {
         anim.SetFloat("Speed", Speed);
         Movement();
+        Sprinting();
         rigidBody.angularVelocity = Vector3.zero;
+        if(Speed > MaxSpeed)
+        {
+            Speed = MaxSpeed;
+        }
     }
 
     private Vector3 cameraRight(Camera cam)
@@ -55,7 +60,7 @@ public class control : MonoBehaviour
             Speed = 0;
         }
 
-        Vector3 moveDirection = GetCameraMoveDirection(WalkInput.Instance.Direction);
+        Vector3 moveDirection = GetCameraMoveDirection(WalkInput.Instance.WalkDirection);
 
         if (moveDirection.magnitude > 0.1f)
         {
@@ -66,6 +71,20 @@ public class control : MonoBehaviour
         else
         {
             rigidBody.AddForce(new Vector3(0, rigidBody.velocity.y, 0));
+        }
+    }
+
+    private void Sprinting()
+    {
+        if(WalkInput.Instance.Sprinting == 1)
+        {
+            MaxSpeed = 40;
+            anim.SetBool("Sprinting", true);
+        }
+        else
+        {
+            MaxSpeed = 20;
+            anim.SetBool("Sprinting", false);
         }
     }
 
