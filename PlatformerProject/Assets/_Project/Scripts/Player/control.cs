@@ -6,27 +6,18 @@ public class control : MonoBehaviour
 {
     [SerializeField] private Camera cam;
 
-    public Vector2 Direction;
     public float Speed;
     public float MaxSpeed;
     public float RotationSpeed = 5f;
 
     private Rigidbody rigidBody;
-    private bool walking = false;
     private Actionmap myPlayerMovement;
     private Animator anim;
 
     private void Awake()
     {
-        myPlayerMovement = new Actionmap();
-    }
-
-    private void OnEnable()
-    {
-        myPlayerMovement.Enable();
-        myPlayerMovement.Controls.Enable();
-        myPlayerMovement.Controls.move.performed += Move;
-        myPlayerMovement.Controls.move.canceled += StopMove;
+        anim = GetComponentInChildren<Animator>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
@@ -34,12 +25,6 @@ public class control : MonoBehaviour
         anim.SetFloat("Speed", Speed);
         Movement();
         rigidBody.angularVelocity = Vector3.zero;
-    }
-
-    private void Move(InputAction.CallbackContext value)
-    {
-        Direction = value.ReadValue<Vector2>().normalized;
-        walking = true;
     }
 
     private Vector3 cameraRight(Camera cam)
@@ -56,15 +41,9 @@ public class control : MonoBehaviour
         return forward.normalized;
     }
 
-    private void StopMove(InputAction.CallbackContext value)
-    {
-        Direction = value.ReadValue<Vector2>().normalized;
-        walking = false;
-    }
-
     private void Movement()
     {
-        if (walking)
+        if (WalkInput.Instance.walking)
         {
             if (Speed < MaxSpeed)
             {
@@ -76,7 +55,7 @@ public class control : MonoBehaviour
             Speed = 0;
         }
 
-        Vector3 moveDirection = GetCameraMoveDirection(Direction);
+        Vector3 moveDirection = GetCameraMoveDirection(WalkInput.Instance.Direction);
 
         if (moveDirection.magnitude > 0.1f)
         {
