@@ -13,14 +13,19 @@ public class DamageCanvas : MonoBehaviour
 
     public IEnumerator FadeIn(Image image)
     {
-        float elapsedTime = 0.0f;
-        Color c = image.color;
-        while (elapsedTime < fadeInSpeed && player.playerHealth != 0)
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
         {
-            yield return
-            elapsedTime += Time.deltaTime;
-            c.a = Mathf.Clamp01(elapsedTime / fadeInSpeed);
-            image.color = c;
+            image.color = new Color(1, 1, 1, i);
+            yield return null;
+            StartCoroutine(FadeOut(image));
+        }
+    }
+    IEnumerator FadeOut(Image image)
+    {
+        for (float i = 1; i <= 0; i += Time.deltaTime)
+        {
+            image.color = new Color(1, 1, 1, i);
+            yield return null;
         }
     }
 }

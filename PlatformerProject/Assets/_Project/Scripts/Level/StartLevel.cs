@@ -7,11 +7,9 @@ public class StartLevel : MonoBehaviour
 
     public GameObject coinsAndCrown;
 
-    public InteractInput interact;
-
     private void OnTriggerStay(Collider other)
     {
-        if(interact.click == 1)
+        if(InteractInput.Instance.click == 1)
         {
             begin();
         }
