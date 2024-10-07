@@ -93,6 +93,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7861763f-f17b-4483-a43d-64b538cd313c",
+                    "path": "<OculusTouchController>{LeftHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e0f68683-255f-42ce-bbde-84df4924fea7",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "Hold",
@@ -107,6 +118,17 @@
                     "id": "d2505ba9-6262-4aa0-bb89-4e3129dc2767",
                     "path": "<Keyboard>/shift",
                     "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "07401f17-ec16-437c-970c-a2cd87f73aca",
+                    "path": "<OculusTouchController>{RightHand}/thumbstick/right",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "sprint",
@@ -145,6 +167,17 @@
                     "name": "",
                     "id": "5a2bff01-d949-4ea1-9e32-fd6fe7215a8a",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06c19f87-43fa-406b-b1ba-863952026a51",
+                    "path": "<OculusTouchController>/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -197,6 +230,56 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClimbingDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Attacking",
+            "id": "757a0c02-cfd5-47fa-8caf-ae0f18d88e26",
+            "actions": [
+                {
+                    "name": "Punch",
+                    "type": "Button",
+                    "id": "a193a2b9-d5c3-4f28-843d-b6f646419e7d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "35d9168c-233b-4325-b29f-1c05e95f997e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32e429ae-22af-438b-a3b0-dc447c881a1f",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9db9c0f1-7b06-4161-8311-db4173b54094",
+                    "path": "<OculusTouchController>{RightHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

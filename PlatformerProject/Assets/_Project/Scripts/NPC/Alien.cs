@@ -19,7 +19,9 @@ public class Alien : NPC
     }
     private AlienState state;
 
+    [SerializeField] AnimationClip clip;
     [SerializeField] int damage;
+    private bool IsDead;
 
     private Rigidbody rb;
     private Animator anim;
@@ -33,10 +35,9 @@ public class Alien : NPC
     [Header("timers")]
     public float idleTimer;
     public float roamingTimer;
-    public float attackTimer;
 
     [Header("Detecting Range")]
-    [SerializeField] float distance;
+    [SerializeField] public float distance;
     [SerializeField] float followReachedThreshold;
     [SerializeField] float runReachedThreshold;
     [SerializeField] float attackReachedThreshold;
@@ -59,6 +60,8 @@ public class Alien : NPC
     {
         state = AlienState.idle;
         Stamina = 100;
+        health = 200;
+        IsDead = false;
     }
 
     private void Update()
@@ -80,6 +83,13 @@ public class Alien : NPC
             case AlienState.attacking:
                 Attack();
                 break;
+        }
+
+        if(health <= 0 && IsDead == false)
+        {
+            IsDead = true;
+            anim.SetInteger("RngDeath", Random.Range(1, 3));
+            anim.SetTrigger("Dead");
         }
     }
 
@@ -162,7 +172,6 @@ public class Alien : NPC
     private void Attack()
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 1f);
-        anim.speed = 1f;
         agent.speed = 0;
         if(!attackCoroutineActive && Stamina > 0)
         {
@@ -207,7 +216,7 @@ public class Alien : NPC
 
     IEnumerator WaitToAttack()
     {
-        yield return new WaitForSeconds(attackTimer);
+        yield return new WaitForSeconds(clip.length + 1);
         anim.SetBool("Attacking", false);
         attackCoroutineActive = false;
     }
@@ -217,6 +226,7 @@ public class Alien : NPC
         if(distance < 1)
         {
             player.playerHealth -= damage;
+            playerObject.GetComponentInChildren<Animator>().SetTrigger("TakenDmg");
             StartCoroutine(Dc.FadeIn(image));
         }
     }

@@ -115,6 +115,17 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7861763f-f17b-4483-a43d-64b538cd313c"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e0f68683-255f-42ce-bbde-84df4924fea7"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": ""Hold"",
@@ -129,6 +140,17 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                     ""id"": ""d2505ba9-6262-4aa0-bb89-4e3129dc2767"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07401f17-ec16-437c-970c-a2cd87f73aca"",
+                    ""path"": ""<OculusTouchController>{RightHand}/thumbstick/right"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""sprint"",
@@ -167,6 +189,17 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5a2bff01-d949-4ea1-9e32-fd6fe7215a8a"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06c19f87-43fa-406b-b1ba-863952026a51"",
+                    ""path"": ""<OculusTouchController>/gripPressed"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -223,6 +256,56 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Attacking"",
+            ""id"": ""757a0c02-cfd5-47fa-8caf-ae0f18d88e26"",
+            ""actions"": [
+                {
+                    ""name"": ""Punch"",
+                    ""type"": ""Button"",
+                    ""id"": ""a193a2b9-d5c3-4f28-843d-b6f646419e7d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""35d9168c-233b-4325-b29f-1c05e95f997e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32e429ae-22af-438b-a3b0-dc447c881a1f"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9db9c0f1-7b06-4161-8311-db4173b54094"",
+                    ""path"": ""<OculusTouchController>{RightHand}/triggerPressed"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Punch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -238,6 +321,9 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         m_Ladder = asset.FindActionMap("Ladder", throwIfNotFound: true);
         m_Ladder_ClimbingUp = m_Ladder.FindAction("ClimbingUp", throwIfNotFound: true);
         m_Ladder_ClimbingDown = m_Ladder.FindAction("ClimbingDown", throwIfNotFound: true);
+        // Attacking
+        m_Attacking = asset.FindActionMap("Attacking", throwIfNotFound: true);
+        m_Attacking_Punch = m_Attacking.FindAction("Punch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -449,6 +535,52 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         }
     }
     public LadderActions @Ladder => new LadderActions(this);
+
+    // Attacking
+    private readonly InputActionMap m_Attacking;
+    private List<IAttackingActions> m_AttackingActionsCallbackInterfaces = new List<IAttackingActions>();
+    private readonly InputAction m_Attacking_Punch;
+    public struct AttackingActions
+    {
+        private @Actionmap m_Wrapper;
+        public AttackingActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Punch => m_Wrapper.m_Attacking_Punch;
+        public InputActionMap Get() { return m_Wrapper.m_Attacking; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AttackingActions set) { return set.Get(); }
+        public void AddCallbacks(IAttackingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AttackingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AttackingActionsCallbackInterfaces.Add(instance);
+            @Punch.started += instance.OnPunch;
+            @Punch.performed += instance.OnPunch;
+            @Punch.canceled += instance.OnPunch;
+        }
+
+        private void UnregisterCallbacks(IAttackingActions instance)
+        {
+            @Punch.started -= instance.OnPunch;
+            @Punch.performed -= instance.OnPunch;
+            @Punch.canceled -= instance.OnPunch;
+        }
+
+        public void RemoveCallbacks(IAttackingActions instance)
+        {
+            if (m_Wrapper.m_AttackingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAttackingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AttackingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AttackingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AttackingActions @Attacking => new AttackingActions(this);
     public interface IControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -462,5 +594,9 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
     {
         void OnClimbingUp(InputAction.CallbackContext context);
         void OnClimbingDown(InputAction.CallbackContext context);
+    }
+    public interface IAttackingActions
+    {
+        void OnPunch(InputAction.CallbackContext context);
     }
 }
