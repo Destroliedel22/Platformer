@@ -149,7 +149,7 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""07401f17-ec16-437c-970c-a2cd87f73aca"",
-                    ""path"": ""<OculusTouchController>{RightHand}/thumbstick/right"",
+                    ""path"": ""<OculusTouchController>{RightHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
