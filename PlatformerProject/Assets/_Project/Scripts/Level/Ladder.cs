@@ -100,7 +100,7 @@ public class Ladder : MonoBehaviour
 
         if (onLadder)
         {
-            other.gameObject.GetComponent<control>().enabled = false;
+            other.gameObject.GetComponent<PlayerControl>().enabled = false;
             if (direction > 0)
             {
                 rb.velocity = new Vector3(0, direction * speed, 0);
@@ -113,7 +113,7 @@ public class Ladder : MonoBehaviour
         }
         else
         {
-            other.gameObject.GetComponent<control>().enabled = true;
+            other.gameObject.GetComponent<PlayerControl>().enabled = true;
         }
     }
 
