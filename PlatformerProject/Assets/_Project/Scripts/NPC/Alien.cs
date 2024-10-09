@@ -1,7 +1,4 @@
-using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -83,6 +80,9 @@ public class Alien : NPC
             case AlienState.attacking:
                 Attack();
                 break;
+            case AlienState.death:
+                Death();
+                break;
         }
 
         if(health <= 0 && IsDead == false)
@@ -90,6 +90,7 @@ public class Alien : NPC
             IsDead = true;
             anim.SetInteger("RngDeath", Random.Range(1, 3));
             anim.SetTrigger("Dead");
+            state = AlienState.death;
         }
     }
 
@@ -99,7 +100,11 @@ public class Alien : NPC
         {
             RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
         }
-        distanceToPlayer();
+
+        if(IsDead == false)
+        {
+            distanceToPlayer();
+        }
     }
 
     private void distanceToPlayer()
@@ -186,6 +191,11 @@ public class Alien : NPC
             StartCoroutine(OutOfStamina());
         }
         this.gameObject.transform.LookAt(playerObject.transform.position);
+    }
+
+    private void Death()
+    {
+        agent.speed = 0;
     }
 
     IEnumerator SwitchToRoaming()
