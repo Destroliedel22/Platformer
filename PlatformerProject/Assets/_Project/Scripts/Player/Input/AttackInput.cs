@@ -42,7 +42,7 @@ public class AttackInput : MonoBehaviour
         myAttackButton.Enable();
         myAttackButton.Attacking.Enable();
         myAttackButton.Attacking.Punch.performed += Punch;
-        myAttackButton.Attacking.Punch.performed += StopPunch;
+        myAttackButton.Attacking.Punch.canceled += StopPunch;
     }
 
     private void Punch(InputAction.CallbackContext value)
