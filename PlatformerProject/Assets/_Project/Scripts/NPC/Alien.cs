@@ -87,9 +87,6 @@ public class Alien : NPC
 
         if(health <= 0 && IsDead == false)
         {
-            IsDead = true;
-            anim.SetInteger("RngDeath", Random.Range(1, 3));
-            anim.SetTrigger("Dead");
             state = AlienState.death;
         }
     }
@@ -180,14 +177,12 @@ public class Alien : NPC
         agent.speed = 0;
         if(!attackCoroutineActive && Stamina > 0)
         {
-            anim.SetBool("Attacking", true);
             attackCoroutineActive = true;
             StartCoroutine(WaitToAttack());
-            Stamina -= 20;
+            //Stamina -= 20;
         }
-        if(Stamina <= 0)
+        else if(Stamina <= 0)
         {
-            anim.SetBool("Attacking", false);
             StartCoroutine(OutOfStamina());
         }
         this.gameObject.transform.LookAt(playerObject.transform.position);
@@ -196,6 +191,9 @@ public class Alien : NPC
     private void Death()
     {
         agent.speed = 0;
+        IsDead = true;
+        anim.SetInteger("RngDeath", Random.Range(1, 3));
+        anim.SetTrigger("Dead");
     }
 
     IEnumerator SwitchToRoaming()
@@ -214,7 +212,7 @@ public class Alien : NPC
     IEnumerator StaminaLosing()
     {
         yield return new WaitForSeconds(1f);
-        Stamina -= 10;
+        //Stamina -= 10;
         coroutineActive = false;
     }
 
@@ -227,7 +225,7 @@ public class Alien : NPC
     IEnumerator WaitToAttack()
     {
         yield return new WaitForSeconds(clip.length + 1);
-        anim.SetBool("Attacking", false);
+        anim.SetTrigger("Attacking");
         attackCoroutineActive = false;
     }
 
