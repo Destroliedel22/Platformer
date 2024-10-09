@@ -30150,7 +30150,6 @@ MonoBehaviour:
   agent: {fileID: 5720402915558461872}
   clip: {fileID: 7400000, guid: 327acf85c4469dd4589873732fd65063, type: 2}
   damage: 40
-  HP: 0
   playerObject: {fileID: 2007393565}
   Dc: {fileID: 1308763300}
   destinationReachedThreshold: 1
