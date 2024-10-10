@@ -1642,6 +1642,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 818674029940729779, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 818674029940729779, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1945401284363317760, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.48
@@ -1661,6 +1669,10 @@ PrefabInstance:
     - target: {fileID: 4630962179886629882, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7425258988861670434, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32013,18 +32025,18 @@ MonoBehaviour:
   agent: {fileID: 5720402915558461872}
   clip: {fileID: 7400000, guid: 327acf85c4469dd4589873732fd65063, type: 2}
   damage: 40
+  attackCoroutineActive: 0
+  destinationReachedThreshold: 1
   AlienHealthBar: {fileID: 1356711064}
   playerObject: {fileID: 2007393565}
   Dc: {fileID: 1308763300}
-  destinationReachedThreshold: 1
+  image: {fileID: 1335646374}
   idleTimer: 2
   roamingTimer: 0
   distance: 0
   followReachedThreshold: 10
   runReachedThreshold: 5
   attackReachedThreshold: 1
-  attackCoroutineActive: 0
-  image: {fileID: 1335646374}
 --- !u!195 &5720402915558461872
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -32290,6 +32302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dmg: 40
+  angle: 0
   clip: {fileID: 7400000, guid: 110363b70bc92d14598e2481c2187c3f, type: 2}
   alien: {fileID: 5720402915558461871}
 --- !u!4 &6363812891076894579

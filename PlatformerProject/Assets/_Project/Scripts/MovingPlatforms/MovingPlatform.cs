@@ -1,19 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public GameObject upperTarget;
+    [SerializeField] int speed;
+    [SerializeField] bool switching;
 
+    public GameObject upperTarget;
     public GameObject lowerTarget;
 
-    [SerializeField]
-    int speed;
-
-    bool switching;
+    private bool coroutineActive;
 
     private void FixedUpdate()
     {
@@ -32,14 +28,28 @@ public class MovingPlatform : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, lowerTarget.transform.position, speed * Time.deltaTime);
         }
 
-        if(transform.position ==  upperTarget.transform.position)
+        if(transform.position ==  upperTarget.transform.position || transform.position == lowerTarget.transform.position)
         {
-            switching = true;
+            if(coroutineActive == false)
+            {
+                coroutineActive = true;
+                StartCoroutine(WaitToSwitch());
+            }
         }
+    }
 
-        else if (transform.position == lowerTarget.transform.position)
+    IEnumerator WaitToSwitch()
+    {
+        yield return new WaitForSeconds(1f);
+        switch(switching)
         {
-            switching = false;
+            case true:
+                switching = false;
+                break;
+            case false:
+                switching = true;
+                break;
         }
+        coroutineActive = false;
     }
 }

@@ -210,54 +210,6 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Ladder"",
-            ""id"": ""2e2bfc91-f948-4876-aae6-bc1b7b858b8a"",
-            ""actions"": [
-                {
-                    ""name"": ""ClimbingUp"",
-                    ""type"": ""Value"",
-                    ""id"": ""c4550f48-dded-4ba7-b8f8-154803f49d40"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ClimbingDown"",
-                    ""type"": ""Button"",
-                    ""id"": ""d3d95915-fbc4-46c1-ba73-6a6c5d7dd706"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""a12a326f-8f34-44fd-9d8d-4ebb938c3915"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ClimbingUp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e16d5ae8-4bc7-4e5b-9fa3-3f51c7ca0e97"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ClimbingDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Attacking"",
             ""id"": ""757a0c02-cfd5-47fa-8caf-ae0f18d88e26"",
             ""actions"": [
@@ -306,6 +258,54 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Ladder"",
+            ""id"": ""2e2bfc91-f948-4876-aae6-bc1b7b858b8a"",
+            ""actions"": [
+                {
+                    ""name"": ""ClimbingUp"",
+                    ""type"": ""Value"",
+                    ""id"": ""c4550f48-dded-4ba7-b8f8-154803f49d40"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ClimbingDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3d95915-fbc4-46c1-ba73-6a6c5d7dd706"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a12a326f-8f34-44fd-9d8d-4ebb938c3915"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbingUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e16d5ae8-4bc7-4e5b-9fa3-3f51c7ca0e97"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbingDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -317,13 +317,13 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Interact = m_Interact.FindAction("Interact", throwIfNotFound: true);
+        // Attacking
+        m_Attacking = asset.FindActionMap("Attacking", throwIfNotFound: true);
+        m_Attacking_Punch = m_Attacking.FindAction("Punch", throwIfNotFound: true);
         // Ladder
         m_Ladder = asset.FindActionMap("Ladder", throwIfNotFound: true);
         m_Ladder_ClimbingUp = m_Ladder.FindAction("ClimbingUp", throwIfNotFound: true);
         m_Ladder_ClimbingDown = m_Ladder.FindAction("ClimbingDown", throwIfNotFound: true);
-        // Attacking
-        m_Attacking = asset.FindActionMap("Attacking", throwIfNotFound: true);
-        m_Attacking_Punch = m_Attacking.FindAction("Punch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -482,6 +482,52 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
     }
     public InteractActions @Interact => new InteractActions(this);
 
+    // Attacking
+    private readonly InputActionMap m_Attacking;
+    private List<IAttackingActions> m_AttackingActionsCallbackInterfaces = new List<IAttackingActions>();
+    private readonly InputAction m_Attacking_Punch;
+    public struct AttackingActions
+    {
+        private @Actionmap m_Wrapper;
+        public AttackingActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Punch => m_Wrapper.m_Attacking_Punch;
+        public InputActionMap Get() { return m_Wrapper.m_Attacking; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AttackingActions set) { return set.Get(); }
+        public void AddCallbacks(IAttackingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AttackingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AttackingActionsCallbackInterfaces.Add(instance);
+            @Punch.started += instance.OnPunch;
+            @Punch.performed += instance.OnPunch;
+            @Punch.canceled += instance.OnPunch;
+        }
+
+        private void UnregisterCallbacks(IAttackingActions instance)
+        {
+            @Punch.started -= instance.OnPunch;
+            @Punch.performed -= instance.OnPunch;
+            @Punch.canceled -= instance.OnPunch;
+        }
+
+        public void RemoveCallbacks(IAttackingActions instance)
+        {
+            if (m_Wrapper.m_AttackingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAttackingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AttackingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AttackingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AttackingActions @Attacking => new AttackingActions(this);
+
     // Ladder
     private readonly InputActionMap m_Ladder;
     private List<ILadderActions> m_LadderActionsCallbackInterfaces = new List<ILadderActions>();
@@ -535,52 +581,6 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         }
     }
     public LadderActions @Ladder => new LadderActions(this);
-
-    // Attacking
-    private readonly InputActionMap m_Attacking;
-    private List<IAttackingActions> m_AttackingActionsCallbackInterfaces = new List<IAttackingActions>();
-    private readonly InputAction m_Attacking_Punch;
-    public struct AttackingActions
-    {
-        private @Actionmap m_Wrapper;
-        public AttackingActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Punch => m_Wrapper.m_Attacking_Punch;
-        public InputActionMap Get() { return m_Wrapper.m_Attacking; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(AttackingActions set) { return set.Get(); }
-        public void AddCallbacks(IAttackingActions instance)
-        {
-            if (instance == null || m_Wrapper.m_AttackingActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_AttackingActionsCallbackInterfaces.Add(instance);
-            @Punch.started += instance.OnPunch;
-            @Punch.performed += instance.OnPunch;
-            @Punch.canceled += instance.OnPunch;
-        }
-
-        private void UnregisterCallbacks(IAttackingActions instance)
-        {
-            @Punch.started -= instance.OnPunch;
-            @Punch.performed -= instance.OnPunch;
-            @Punch.canceled -= instance.OnPunch;
-        }
-
-        public void RemoveCallbacks(IAttackingActions instance)
-        {
-            if (m_Wrapper.m_AttackingActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IAttackingActions instance)
-        {
-            foreach (var item in m_Wrapper.m_AttackingActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_AttackingActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public AttackingActions @Attacking => new AttackingActions(this);
     public interface IControlsActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -590,13 +590,13 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
     {
         void OnInteract(InputAction.CallbackContext context);
     }
+    public interface IAttackingActions
+    {
+        void OnPunch(InputAction.CallbackContext context);
+    }
     public interface ILadderActions
     {
         void OnClimbingUp(InputAction.CallbackContext context);
         void OnClimbingDown(InputAction.CallbackContext context);
-    }
-    public interface IAttackingActions
-    {
-        void OnPunch(InputAction.CallbackContext context);
     }
 }
