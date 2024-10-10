@@ -18,16 +18,22 @@ public class Alien : NPC
 
     [SerializeField] AnimationClip clip;
     [SerializeField] int damage;
-    private bool IsDead;
+    [SerializeField] bool attackCoroutineActive;
+    [SerializeField] float destinationReachedThreshold;
 
-    private Rigidbody rb;
-    private Animator anim;
+    public RectTransform AlienHealthBar;
     public GameObject playerObject;
     public DamageCanvas Dc;
-    private Player player;
+    public Image image;
 
-    Vector3 RandomDestination;
-    [SerializeField] float destinationReachedThreshold;
+    private bool IsDead;
+    private bool noStamina;
+    private bool coroutineActive;
+    private int RngDeath;
+    private Rigidbody rb;
+    private Animator anim;
+    private Player player;
+    private Vector3 RandomDestination;
 
     [Header("timers")]
     public float idleTimer;
@@ -38,12 +44,6 @@ public class Alien : NPC
     [SerializeField] float followReachedThreshold;
     [SerializeField] float runReachedThreshold;
     [SerializeField] float attackReachedThreshold;
-
-    bool noStamina;
-    bool coroutineActive;
-    [SerializeField] bool attackCoroutineActive;
-
-    public Image image;
 
     private void Awake()
     {
@@ -59,6 +59,7 @@ public class Alien : NPC
         Stamina = 100;
         health = 200;
         IsDead = false;
+        RngDeath = Random.Range(1, 3);
     }
 
     private void Update()
@@ -85,7 +86,15 @@ public class Alien : NPC
                 break;
         }
 
+        AlienHealthBar.sizeDelta = new Vector2(health / 400, AlienHealthBar.rect.height);
+        Camera cam = FindObjectOfType<Camera>();
+        AlienHealthBar.parent.LookAt(cam.transform);
+
         if(health <= 0 && IsDead == false)
+        {
+            state = AlienState.death;
+        }
+        if(IsDead)
         {
             state = AlienState.death;
         }
@@ -119,19 +128,25 @@ public class Alien : NPC
         {
             state= AlienState.following;
         }
-        else if(distance > followReachedThreshold)
+        if(distance > followReachedThreshold)
         {
              state = AlienState.roaming;
+        }
+        else if(distance > runReachedThreshold)
+        {
+            state = AlienState.following;
         }
         else if(distance > attackReachedThreshold)
         {
             anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
+            state = AlienState.running;
         }
     }
 
     private void Idle()
     {
         anim.SetFloat("Blend", 0);
+        agent.speed = 0;
         rb.velocity = Vector3.zero;
         StartCoroutine(SwitchToRoaming());
         Stamina = 100;
@@ -164,9 +179,8 @@ public class Alien : NPC
         }
         if(Stamina <= 0)
         {
-            StartCoroutine(OutOfStamina());
+            state = AlienState.idle;
             noStamina = true;
-            StopCoroutine(StaminaLosing());
             coroutineActive = false;
         }
     }
@@ -183,7 +197,7 @@ public class Alien : NPC
         }
         else if(Stamina <= 0)
         {
-            StartCoroutine(OutOfStamina());
+            state = AlienState.idle;
         }
         this.gameObject.transform.LookAt(playerObject.transform.position);
     }
@@ -191,9 +205,14 @@ public class Alien : NPC
     private void Death()
     {
         agent.speed = 0;
+        if(IsDead == false)
+        {
+            anim.SetTrigger("Dead");
+            anim.SetInteger("RngDeath", RngDeath);
+        }
         IsDead = true;
-        anim.SetInteger("RngDeath", Random.Range(1, 3));
-        anim.SetTrigger("Dead");
+        anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
+        StopAllCoroutines();
     }
 
     IEnumerator SwitchToRoaming()
@@ -216,15 +235,9 @@ public class Alien : NPC
         coroutineActive = false;
     }
 
-    IEnumerator OutOfStamina()
-    {
-        yield return new WaitForSeconds(5f);
-        state = AlienState.idle;
-    }
-
     IEnumerator WaitToAttack()
     {
-        yield return new WaitForSeconds(clip.length + 1);
+        yield return new WaitForSeconds(clip.length + 2);
         anim.SetTrigger("Attacking");
         attackCoroutineActive = false;
     }
