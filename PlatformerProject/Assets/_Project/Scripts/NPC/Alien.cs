@@ -14,7 +14,6 @@ public class Alien : NPC
         attacking,
         death
     }
-    private AlienState state;
 
     [SerializeField] AnimationClip clip;
     [SerializeField] int damage;
@@ -34,6 +33,7 @@ public class Alien : NPC
     private Animator anim;
     private Player player;
     private Vector3 RandomDestination;
+    private AlienState state;
 
     [Header("timers")]
     public float idleTimer;
@@ -64,7 +64,21 @@ public class Alien : NPC
 
     private void Update()
     {
-        switch(state)
+        SwitchCase();
+        AlienHealth();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold && state == AlienState.roaming)
+        {
+            RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
+        }
+    }
+
+    private void SwitchCase()
+    {
+        switch (state)
         {
             case AlienState.idle:
                 Idle();
@@ -85,29 +99,24 @@ public class Alien : NPC
                 Death();
                 break;
         }
+    }
 
+    private void AlienHealth()
+    {
         AlienHealthBar.sizeDelta = new Vector2(health / 400, AlienHealthBar.rect.height);
         Camera cam = FindObjectOfType<Camera>();
         AlienHealthBar.parent.LookAt(cam.transform);
 
-        if(health <= 0 && IsDead == false)
+        if (health <= 0 && IsDead == false)
         {
             state = AlienState.death;
         }
-        if(IsDead)
+        if (IsDead)
         {
             state = AlienState.death;
         }
-    }
 
-    private void FixedUpdate()
-    {
-        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold && state == AlienState.roaming)
-        {
-            RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
-        }
-
-        if(IsDead == false)
+        if (IsDead == false)
         {
             distanceToPlayer();
         }
