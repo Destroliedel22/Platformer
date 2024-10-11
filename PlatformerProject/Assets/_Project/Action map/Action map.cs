@@ -265,9 +265,9 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""ClimbingUp"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""c4550f48-dded-4ba7-b8f8-154803f49d40"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -296,8 +296,30 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4c5736a0-f423-47bb-a88b-7c2cec95965b"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbingUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e16d5ae8-4bc7-4e5b-9fa3-3f51c7ca0e97"",
                     ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClimbingDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a7b8ac2f-8b70-491c-a895-2439d6681593"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

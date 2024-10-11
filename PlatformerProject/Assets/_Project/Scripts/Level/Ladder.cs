@@ -8,79 +8,19 @@ using UnityEngine.InputSystem;
 
 public class Ladder : MonoBehaviour
 {
-    private Actionmap myPlayerMovement;
-    private Actionmap myInteractButton;
-
-    public float direction;
-    public float downDirection;
-    public float click;
-
     public float speed;
 
-    private bool up;
-    private bool down;
-
     private bool cooldown = false;
-
     private bool onLadder = false;
-
     private Rigidbody rb;
-
-    private void Awake()
-    {
-        myPlayerMovement = new Actionmap();
-        myInteractButton = new Actionmap();
-    }
-
-    private void OnEnable()
-    {
-        myPlayerMovement.Enable();
-        myPlayerMovement.Ladder.Enable();
-        myPlayerMovement.Ladder.ClimbingUp.performed += ClimbingUp;
-        myPlayerMovement.Ladder.ClimbingUp.canceled += StopClimbingUp;
-        myPlayerMovement.Ladder.ClimbingDown.performed += ClimbingDown;
-        myPlayerMovement.Ladder.ClimbingDown.canceled += StopClimbingDown;
-        myInteractButton.Enable();
-        myInteractButton.Interact.Enable();
-        myInteractButton.Interact.Interact.performed += interact;
-        myInteractButton.Interact.Interact.canceled += Stopinteract;
-    }
-
-    private void ClimbingUp(InputAction.CallbackContext value)
-    {
-        direction = value.ReadValue<float>();
-    }
-
-    private void StopClimbingUp(InputAction.CallbackContext value)
-    {
-        direction = value.ReadValue<float>();
-    }
-
-    private void ClimbingDown(InputAction.CallbackContext value)
-    {
-        downDirection = value.ReadValue<float>();
-    }
-
-    private void StopClimbingDown(InputAction.CallbackContext value)
-    {
-        downDirection = value.ReadValue<float>();
-    }
-
-    private void interact(InputAction.CallbackContext value)
-    {
-        click = value.ReadValue<float>();
-    }
-
-    private void Stopinteract(InputAction.CallbackContext value)
-    {
-        click = value.ReadValue<float>();
-    }
 
     private void OnTriggerStay(Collider other)
     {
+        rb = other.gameObject.GetComponent<Rigidbody>();
+
         if (cooldown == false)
         {
-            if(click == 1)
+            if(InteractInput.Instance.click == 1)
             {
                 StartCoroutine(InteractCooldown());
                 if(onLadder)
@@ -94,26 +34,25 @@ public class Ladder : MonoBehaviour
             }
         }
 
-        rb = other.gameObject.GetComponent<Rigidbody>();
-        other.gameObject.GetComponent<PlayerJump>().downForce = 0;
-        rb.useGravity = false;
-
         if (onLadder)
         {
+            other.gameObject.GetComponent<PlayerJump>().enabled = false;
             other.gameObject.GetComponent<PlayerControl>().enabled = false;
-            if (direction > 0)
+            rb.useGravity = false;
+            if (LadderInput.Instance.direction > 0)
             {
-                rb.velocity = new Vector3(0, direction * speed, 0);
+                rb.velocity = new Vector3(0, LadderInput.Instance.direction * speed, 0) + gameObject.transform.up;
             }
 
-            if (downDirection > 0)
+            if (LadderInput.Instance.downDirection > 0)
             {
-                rb.velocity = new Vector3(0, downDirection * -speed, 0);
+                rb.velocity = new Vector3(0, LadderInput.Instance.downDirection * -speed, 0) - gameObject.transform.up;
             }
         }
         else
         {
             other.gameObject.GetComponent<PlayerControl>().enabled = true;
+            other.gameObject.GetComponent<PlayerJump>().enabled = true;
         }
     }
 

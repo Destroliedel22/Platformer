@@ -5,11 +5,19 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] int speed;
     [SerializeField] bool switching;
+    [SerializeField] AnimationClip clip;
+    [SerializeField] Animation anim;
 
     public GameObject upperTarget;
     public GameObject lowerTarget;
 
     private bool coroutineActive;
+    //private Animator anim;
+
+    private void Awake()
+    {
+        //anim = GetComponentInChildren<Animator>();
+    }
 
     private void FixedUpdate()
     {
@@ -30,7 +38,7 @@ public class MovingPlatform : MonoBehaviour
 
         if(transform.position ==  upperTarget.transform.position || transform.position == lowerTarget.transform.position)
         {
-            if(coroutineActive == false)
+            if (coroutineActive == false)
             {
                 coroutineActive = true;
                 StartCoroutine(WaitToSwitch());
@@ -40,16 +48,20 @@ public class MovingPlatform : MonoBehaviour
 
     IEnumerator WaitToSwitch()
     {
-        yield return new WaitForSeconds(1f);
-        switch(switching)
+        anim.Play();
+        yield return new WaitForSeconds(clip.length);
+        switch (switching)
         {
             case true:
                 switching = false;
+                //anim.SetBool("UpperTarget", false);
                 break;
             case false:
                 switching = true;
+                //anim.SetBool("UpperTarget", true);
                 break;
         }
+        anim.gameObject.SetActive(false);
         coroutineActive = false;
     }
 }
