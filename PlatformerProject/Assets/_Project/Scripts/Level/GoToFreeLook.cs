@@ -1,4 +1,5 @@
 using Cinemachine;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class GoToFreeLook : MonoBehaviour
@@ -8,7 +9,7 @@ public class GoToFreeLook : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<XROrigin>().enabled == false)
         {
             virtualCamera.gameObject.SetActive(false);
             freeLookCamera.gameObject.SetActive(true);
