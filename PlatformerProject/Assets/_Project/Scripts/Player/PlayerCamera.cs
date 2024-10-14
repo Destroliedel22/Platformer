@@ -1,24 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
+    [SerializeField] public Camera cam;
+    [SerializeField] public Camera XRcam;
 
     public float RotationSpeed = 5f;
+    public Camera liveCam;
 
     private Rigidbody rigidBody;
 
     private void Awake()
     {
         rigidBody = this.gameObject.GetComponent<Rigidbody>();
+        if (XRcam.gameObject.activeSelf == true)
+        {
+            liveCam = XRcam;
+        }
+        else
+        {
+            liveCam = cam;
+        }
     }
 
     public Vector3 GetCameraMoveDirection(Vector2 input)
     {
-        Vector3 cameraForward = cam.transform.forward;
-        Vector3 cameraRight = cam.transform.right;
+        Vector3 cameraForward = liveCam.gameObject.transform.forward;
+        Vector3 cameraRight = liveCam.gameObject.transform.right;
 
         cameraForward.y = 0;
         cameraRight.y = 0;
@@ -35,19 +47,5 @@ public class PlayerCamera : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
 
         rigidBody.rotation = Quaternion.Slerp(rigidBody.rotation, targetRotation, RotationSpeed * Time.deltaTime);
-    }
-
-    private Vector3 cameraRight(Camera cam)
-    {
-        Vector3 right = cam.transform.right;
-        right.y = 0f;
-        return right.normalized;
-    }
-
-    private Vector3 cameraForward(Camera cam)
-    {
-        Vector3 forward = cam.transform.forward;
-        forward.y = 0f;
-        return forward.normalized;
     }
 }
