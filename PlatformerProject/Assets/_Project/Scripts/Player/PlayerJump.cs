@@ -5,10 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
-    public InputAction jumpAction;
-
-    public float direction;
-
     public Rigidbody rigidBody;
 
     public bool isGrounded;
@@ -24,42 +20,16 @@ public class PlayerJump : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-    private void Start()
-    {
-        jumpAction.performed += Jump;
-        jumpAction.canceled += StopJump;
-        jumpAction.Enable();
-
-        beginDownForce = downForce;
-    }
-
-    private void OnDisable()
-    {
-        jumpAction.performed -= Jump;
-        jumpAction.canceled -= StopJump;
-        jumpAction.Disable();
-    }
-
-    private void Jump(InputAction.CallbackContext value)
-    {
-        direction = value.ReadValue<float>();
-    }
-
-    private void StopJump(InputAction.CallbackContext value)
-    {
-        direction = value.ReadValue<float>();
-    }
-
     private void FixedUpdate()
     {
-        if (direction == 1 && isGrounded)
+        if (JumpInput.Instance.JumpClick == 1 && isGrounded)
         {
             anim.SetBool("Jumping", true);
             isGrounded = false;
             downForce = beginDownForce;
             rigidBody.AddForce(Vector3.up * force);
         }
-        if(direction == 0)
+        if(JumpInput.Instance.JumpClick == 0)
         {
             anim.SetBool("Jumping", false);
         }
