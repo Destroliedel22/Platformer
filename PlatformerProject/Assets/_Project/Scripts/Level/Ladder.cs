@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Ladder : MonoBehaviour
 {
+    [SerializeField] Transform ladderTop;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] Animator anim;
+
     public float speed;
 
     private bool cooldown = false;
@@ -20,7 +19,7 @@ public class Ladder : MonoBehaviour
 
         if (cooldown == false)
         {
-            if(InteractInput.Instance.click == 1)
+            if(InteractInput.Instance.click == 1 && other.CompareTag("Player"))
             {
                 StartCoroutine(InteractCooldown());
                 if(onLadder)

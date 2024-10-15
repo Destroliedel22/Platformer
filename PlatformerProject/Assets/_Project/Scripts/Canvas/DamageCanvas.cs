@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DamageCanvas : MonoBehaviour
 {
-    [SerializeField]float fadeInSpeed;
+    [SerializeField] float fadeInSpeed;
     [SerializeField] float fadeOutSpeed;
 
     public Player player;
