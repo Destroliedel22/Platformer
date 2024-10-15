@@ -47,7 +47,7 @@ public class Alien : NPC
 
     private void Awake()
     {
-        //all the references i can get with getcomponent
+        //all the references i can get with GetComponent
         anim = this.gameObject.GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody>();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
@@ -71,16 +71,21 @@ public class Alien : NPC
 
     private void FixedUpdate()
     {
-        //sets a destination to where the alien goes when roaming 
+        SetDestination();
+    }
+
+    //sets a destination to where the alien goes when roaming 
+    private void SetDestination()
+    {
         if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold && state == AlienState.roaming)
         {
             RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
         }
     }
 
+    //a switch that checks which state the alien is in to run a function
     private void SwitchCase()
     {
-        //a switch that checks wich state the alien is in to run a function
         switch (state)
         {
             case AlienState.idle:
@@ -104,6 +109,7 @@ public class Alien : NPC
         }
     }
 
+    //updates the healthbar to how many hp and when it reaches 0 state is death
     private void AlienHealth()
     {
         AlienHealthBar.sizeDelta = new Vector2(health / 400, AlienHealthBar.rect.height);
@@ -125,6 +131,7 @@ public class Alien : NPC
         }
     }
 
+    //calculates the distance between the player and the alien and changes the state acoording to how far
     private void distanceToPlayer()
     {
         distance = Vector3.Distance(this.transform.position, playerObject.transform.position);
@@ -155,6 +162,7 @@ public class Alien : NPC
         }
     }
 
+    //does his idle animation and does nothing else
     private void Idle()
     {
         anim.SetFloat("Blend", 0);
@@ -164,6 +172,7 @@ public class Alien : NPC
         Stamina = 100;
     }
 
+    //goes to a destination he gets
     private void Roaming()
     {
         anim.SetFloat("Blend", 2);
@@ -172,6 +181,7 @@ public class Alien : NPC
         StartCoroutine(SwitchToIdle());
     }
 
+    //follow the player
     private void Follow()
     {
         anim.SetFloat("Blend", 2);
@@ -179,6 +189,7 @@ public class Alien : NPC
         agent.speed = 2;
     }
 
+    //runs towards the player while stamina is going down
     private void Running()
     {
         anim.SetFloat("Blend", 5);
@@ -197,6 +208,7 @@ public class Alien : NPC
         }
     }
 
+    //attacks the player and reduces stamina
     private void Attack()
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 1f);
@@ -214,6 +226,7 @@ public class Alien : NPC
         this.gameObject.transform.LookAt(playerObject.transform.position);
     }
 
+    //plays death animation
     private void Death()
     {
         agent.speed = 0;
@@ -227,12 +240,14 @@ public class Alien : NPC
         StopAllCoroutines();
     }
 
+    //switches to roaming after a couple seconds
     IEnumerator SwitchToRoaming()
     {
         yield return new WaitForSeconds(idleTimer);
         state = AlienState.roaming;
     }
-
+    
+    //switches to idle after a random amount of seconds between 5 and 20
     IEnumerator SwitchToIdle()
     {
         roamingTimer = Random.Range(5, 20);
@@ -240,6 +255,7 @@ public class Alien : NPC
         StopCoroutine(SwitchToIdle());
     }
 
+    //loses stamina every second
     IEnumerator StaminaLosing()
     {
         yield return new WaitForSeconds(1f);
@@ -247,6 +263,7 @@ public class Alien : NPC
         coroutineActive = false;
     }
 
+    //attack cooldown
     IEnumerator WaitToAttack()
     {
         yield return new WaitForSeconds(clip.length + 2);
@@ -254,6 +271,7 @@ public class Alien : NPC
         attackCoroutineActive = false;
     }
 
+    //deals dmg to the player
     public void DealDmg()
     {
         if(distance < 1)
