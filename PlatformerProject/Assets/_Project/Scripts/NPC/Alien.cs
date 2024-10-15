@@ -47,6 +47,7 @@ public class Alien : NPC
 
     private void Awake()
     {
+        //all the references i can get with getcomponent
         anim = this.gameObject.GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody>();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
@@ -70,6 +71,7 @@ public class Alien : NPC
 
     private void FixedUpdate()
     {
+        //sets a destination to where the alien goes when roaming 
         if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold && state == AlienState.roaming)
         {
             RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
@@ -78,6 +80,7 @@ public class Alien : NPC
 
     private void SwitchCase()
     {
+        //a switch that checks wich state the alien is in to run a function
         switch (state)
         {
             case AlienState.idle:
