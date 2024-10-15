@@ -6,14 +6,12 @@ using UnityEngine.InputSystem;
 public class PlayerJump : MonoBehaviour
 {
     public Rigidbody rigidBody;
-
     public bool isGrounded;
-
     public float force;
     public float downForce;
-    private float beginDownForce;
 
-    Animator anim;
+    private float beginDownForce;
+    private Animator anim;
 
     private void Awake()
     {
@@ -22,26 +20,8 @@ public class PlayerJump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (JumpInput.Instance.JumpClick == 1 && isGrounded)
-        {
-            anim.SetBool("Jumping", true);
-            isGrounded = false;
-            downForce = beginDownForce;
-            rigidBody.AddForce(Vector3.up * force);
-        }
-        if(JumpInput.Instance.JumpClick == 0)
-        {
-            anim.SetBool("Jumping", false);
-        }
-
-        if (isGrounded == false)
-        {
-            rigidBody.AddForce(Vector3.down * downForce);
-            if(downForce < 100)
-            {
-                downForce += 5;
-            }
-        }
+        Jump();
+        DownForce();
     }
 
     private void OnTriggerStay(Collider other)
@@ -67,6 +47,35 @@ public class PlayerJump : MonoBehaviour
         {
             isGrounded = false;
             this.gameObject.transform.SetParent(null, true);
+        }
+    }
+
+    //if button clicked player jumps with animation
+    private void Jump()
+    {
+        if (JumpInput.Instance.JumpClick == 1 && isGrounded)
+        {
+            anim.SetBool("Jumping", true);
+            isGrounded = false;
+            downForce = beginDownForce;
+            rigidBody.AddForce(Vector3.up * force);
+        }
+        if (JumpInput.Instance.JumpClick == 0)
+        {
+            anim.SetBool("Jumping", false);
+        }
+    }
+
+    //pushes player down when in the air
+    private void DownForce()
+    {
+        if (isGrounded == false)
+        {
+            rigidBody.AddForce(Vector3.down * downForce);
+            if (downForce < 100)
+            {
+                downForce += 5;
+            }
         }
     }
 }

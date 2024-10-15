@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class StartLevel : MonoBehaviour
 {
     public bool CrownPickedUp = false;
-
     public GameObject coinsAndCrown;
 
     private void OnTriggerStay(Collider other)
@@ -15,6 +13,7 @@ public class StartLevel : MonoBehaviour
         }
     }
 
+    //activates all coins, crowns and stars on that level
     public void begin()
     {
         coinsAndCrown.SetActive(true);

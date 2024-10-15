@@ -131,7 +131,7 @@ public class Alien : NPC
         }
     }
 
-    //calculates the distance between the player and the alien and changes the state acoording to how far
+    //calculates the distance between the player and the alien and changes the state according to how far
     private void distanceToPlayer()
     {
         distance = Vector3.Distance(this.transform.position, playerObject.transform.position);

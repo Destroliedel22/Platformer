@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     private static ScoreManager instance;
 
+    //singleton
     public static ScoreManager Instance
     {
         get

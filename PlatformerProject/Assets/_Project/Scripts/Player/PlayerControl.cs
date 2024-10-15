@@ -30,6 +30,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //moves and rotates the player according to input and camera
     private void Movement()
     {
         if (WalkInput.Instance.walking)
@@ -58,6 +59,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //sprinting when button is held
     private void Sprinting()
     {
         if(WalkInput.Instance.Sprinting == 1)
@@ -72,6 +74,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //speed accelerates over time
     IEnumerator Accelerate()
     {
         Speed++;

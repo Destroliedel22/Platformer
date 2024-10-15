@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.XR.CoreUtils;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerCamera : MonoBehaviour
 {
@@ -27,6 +23,7 @@ public class PlayerCamera : MonoBehaviour
         }
     }
 
+    //returns the direction the players moves according to camera
     public Vector3 GetCameraMoveDirection(Vector2 input)
     {
         Vector3 cameraForward = liveCam.gameObject.transform.forward;
@@ -42,6 +39,7 @@ public class PlayerCamera : MonoBehaviour
         return moveDirection;
     }
 
+    //rotates player according to camera
     public void RotatePlayer(Vector3 moveDirection)
     {
         Quaternion targetRotation = Quaternion.LookRotation(moveDirection);

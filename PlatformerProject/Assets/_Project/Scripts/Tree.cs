@@ -1,33 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    public GameObject Fruit;
-    private Transform camera;
-
     [SerializeField] private List<Transform> fruitSpawns = new List<Transform>();
-    private Transform fruitSpawn;
-
     [SerializeField] private GameObject ShakeCanvas;
 
-    private int maxFruitAmount;
+    public GameObject Fruit;
 
+    private Transform camera;
+    private Transform fruitSpawn;
+    private int maxFruitAmount;
     private bool shaken;
 
     private void Awake()
     {
         camera = FindObjectOfType<Camera>().transform;
-    }
-
-    public void Shake()
-    {
-        Transform randomTransform = fruitSpawns[Random.Range(0, fruitSpawns.Count)];
-        fruitSpawn = randomTransform;
-        Instantiate(Fruit, fruitSpawn.position, Quaternion.identity, fruitSpawn);
-        fruitSpawns.Remove(fruitSpawn);
     }
 
     private void Update()
@@ -65,6 +54,16 @@ public class Tree : MonoBehaviour
         }
     }
 
+    //drops an apple out the tree on a random spawn from the list
+    public void Shake()
+    {
+        Transform randomTransform = fruitSpawns[Random.Range(0, fruitSpawns.Count)];
+        fruitSpawn = randomTransform;
+        Instantiate(Fruit, fruitSpawn.position, Quaternion.identity, fruitSpawn);
+        fruitSpawns.Remove(fruitSpawn);
+    }
+
+    //waits till you can shake again
     IEnumerator WaitToShake()
     {
         yield return new WaitForSeconds(0.5f);
