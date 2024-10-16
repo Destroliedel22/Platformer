@@ -24,6 +24,7 @@ public class PlayerJump : MonoBehaviour
         DownForce();
     }
 
+    //checks if touching ground
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag("Ground"))
@@ -37,6 +38,7 @@ public class PlayerJump : MonoBehaviour
         }
     }
 
+    //checks if exiting ground
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -60,7 +62,7 @@ public class PlayerJump : MonoBehaviour
             downForce = beginDownForce;
             rigidBody.AddForce(Vector3.up * force);
         }
-        if (JumpInput.Instance.JumpClick == 0)
+        else if (JumpInput.Instance.JumpClick == 0)
         {
             anim.SetBool("Jumping", false);
         }
