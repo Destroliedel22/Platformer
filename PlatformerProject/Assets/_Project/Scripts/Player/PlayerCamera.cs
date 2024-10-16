@@ -1,9 +1,13 @@
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] public Camera cam;
-    [SerializeField] public Camera XRcam;
+    [SerializeField] Camera cam;
+    [SerializeField] Camera XRcam;
+    [SerializeField] CinemachineFreeLook CmFLCam;
+    [SerializeField] GameObject XROrigin;
+    [SerializeField] CinemachineClearShot CmCSCam;
 
     public float RotationSpeed = 5f;
     public Camera liveCam;
@@ -13,12 +17,17 @@ public class PlayerCamera : MonoBehaviour
     private void Awake()
     {
         rigidBody = this.gameObject.GetComponent<Rigidbody>();
-        if (XRcam.gameObject.activeSelf == true)
+
+        if (UnityEngine.XR.XRSettings.enabled)
         {
-            liveCam = XRcam;
+            XROrigin.gameObject.SetActive(true);
+            CmCSCam.gameObject.SetActive(true);
+            liveCam = XROrigin.GetComponentInChildren<Camera>();
         }
         else
         {
+            cam.gameObject.SetActive(true);
+            CmFLCam.gameObject.SetActive(true);
             liveCam = cam;
         }
     }
