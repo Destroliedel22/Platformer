@@ -62,7 +62,7 @@ public class Ladder : MonoBehaviour
                 rb.velocity = new Vector3(0, LadderInput.Instance.downDirection * -speed, 0) - gameObject.transform.up;
             }
         }
-        else
+        else if (PlayerControl != null && PlayerJump != null)
         {
             PlayerControl.enabled = true;
             PlayerJump.enabled = true;

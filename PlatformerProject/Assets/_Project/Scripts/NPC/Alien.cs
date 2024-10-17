@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -19,6 +20,8 @@ public class Alien : NPC
     [SerializeField] int damage;
     [SerializeField] bool attackCoroutineActive;
     [SerializeField] float destinationReachedThreshold;
+    [SerializeField] Transform Underground;
+    [SerializeField] float deathSpeed;
 
     public RectTransform AlienHealthBar;
     public GameObject playerObject;
@@ -71,13 +74,27 @@ public class Alien : NPC
 
     private void FixedUpdate()
     {
-        SetDestination();
+        if (state == AlienState.roaming)
+        {
+            SetDestination();
+        }
+    }
+
+    //deals dmg to the player
+    public void DealDmg()
+    {
+        if (distance < 1)
+        {
+            player.playerHealth -= damage;
+            playerObject.GetComponentInChildren<Animator>().SetTrigger("TakenDmg");
+            StartCoroutine(Dc.FadeIn(image));
+        }
     }
 
     //sets a destination to where the alien goes when roaming 
     private void SetDestination()
     {
-        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold && state == AlienState.roaming)
+        if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold)
         {
             RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
         }
@@ -134,31 +151,34 @@ public class Alien : NPC
     //calculates the distance between the player and the alien and changes the state according to how far
     private void distanceToPlayer()
     {
-        distance = Vector3.Distance(this.transform.position, playerObject.transform.position);
-        if (distance < attackReachedThreshold)
+        if(health > 0)
         {
-            state = AlienState.attacking;
-        }
-        else if (distance < runReachedThreshold && !noStamina)
-        {
-            state = AlienState.running;
-        }
-        else if(distance < followReachedThreshold && !noStamina)
-        {
-            state= AlienState.following;
-        }
-        if(distance > followReachedThreshold)
-        {
-             state = AlienState.roaming;
-        }
-        else if(distance > runReachedThreshold)
-        {
-            state = AlienState.following;
-        }
-        else if(distance > attackReachedThreshold)
-        {
-            anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
-            state = AlienState.running;
+            distance = Vector3.Distance(this.transform.position, playerObject.transform.position);
+            if (distance < attackReachedThreshold)
+            {
+                state = AlienState.attacking;
+            }
+            else if (distance < runReachedThreshold && !noStamina)
+            {
+                state = AlienState.running;
+            }
+            else if (distance < followReachedThreshold && !noStamina)
+            {
+                state = AlienState.following;
+            }
+            if (distance > followReachedThreshold)
+            {
+                state = AlienState.roaming;
+            }
+            else if (distance > runReachedThreshold)
+            {
+                state = AlienState.following;
+            }
+            else if (distance > attackReachedThreshold)
+            {
+                anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
+                state = AlienState.running;
+            }
         }
     }
 
@@ -229,15 +249,16 @@ public class Alien : NPC
     //plays death animation
     private void Death()
     {
-        agent.speed = 0;
-        if(IsDead == false)
+        agent.enabled = false;
+        if (IsDead == false)
         {
             anim.SetTrigger("Dead");
             anim.SetInteger("RngDeath", RngDeath);
+            StartCoroutine(WaitToDissolve());
         }
         IsDead = true;
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
-        StopAllCoroutines();
+        //GetComponent<Collider>().enabled = false;
     }
 
     //switches to roaming after a couple seconds
@@ -271,14 +292,12 @@ public class Alien : NPC
         attackCoroutineActive = false;
     }
 
-    //deals dmg to the player
-    public void DealDmg()
+    //pulls alien in ground and destroys when fully under ground
+    IEnumerator WaitToDissolve()
     {
-        if(distance < 1)
-        {
-            player.playerHealth -= damage;
-            playerObject.GetComponentInChildren<Animator>().SetTrigger("TakenDmg");
-            StartCoroutine(Dc.FadeIn(image));
-        }
+        yield return new WaitForSeconds(5f);
+        GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }

@@ -4,10 +4,6 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] Camera cam;
-    [SerializeField] Camera XRcam;
-    [SerializeField] CinemachineFreeLook CmFLCam;
-    [SerializeField] GameObject XROrigin;
-    [SerializeField] CinemachineClearShot CmCSCam;
 
     public float RotationSpeed = 5f;
     public Camera liveCam;
@@ -17,19 +13,7 @@ public class PlayerCamera : MonoBehaviour
     private void Awake()
     {
         rigidBody = this.gameObject.GetComponent<Rigidbody>();
-
-        if (UnityEngine.XR.XRSettings.enabled)
-        {
-            XROrigin.gameObject.SetActive(true);
-            CmCSCam.gameObject.SetActive(true);
-            liveCam = XROrigin.GetComponentInChildren<Camera>();
-        }
-        else
-        {
-            cam.gameObject.SetActive(true);
-            CmFLCam.gameObject.SetActive(true);
-            liveCam = cam;
-        }
+        liveCam = Camera.main;
     }
 
     //returns the direction the players moves according to camera
