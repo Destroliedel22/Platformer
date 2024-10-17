@@ -11,6 +11,7 @@ public class DamageCanvas : MonoBehaviour
 
     public Player player;
 
+    //fades in the hit canvas when getting hit
     public IEnumerator FadeIn(Image image)
     {
         for (float i = 1; i >= 0; i -= Time.deltaTime)
@@ -20,6 +21,8 @@ public class DamageCanvas : MonoBehaviour
             StartCoroutine(FadeOut(image));
         }
     }
+
+    //fades out the canvas after time
     IEnumerator FadeOut(Image image)
     {
         for (float i = 1; i <= 0; i += Time.deltaTime)

@@ -4,16 +4,16 @@ using UnityEngine;
 public class Crown : PickUp
 {
     public TextMeshProUGUI Crowns;
-
     public GameObject startRing;
 
-    bool crownPickedUp;
+    private bool crownPickedUp;
 
     private void Start()
     {
         crownPickedUp = false;
     }
 
+    //you get 1 crown and destroys the crown
     public override void Activate()
     {
         if(!crownPickedUp)

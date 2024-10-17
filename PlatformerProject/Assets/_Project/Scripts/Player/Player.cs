@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float playerHealth;
+    [SerializeField] public GameObject playerCanvas;
+    [SerializeField] public GameObject deathCanvas;
 
+    public float playerHealth;
     public RectTransform Health;
     public TextMeshProUGUI HPText;
 
-    public GameObject playerCanvas;
-    public GameObject deathCanvas;
-
-    bool isDead;
+    private bool isDead;
 
     Animator anim;
 
@@ -22,15 +21,21 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        UpdateHealth();
+    }
+
+    //updates the health bar to what hp the player has and if hp = 0 player dies
+    public void UpdateHealth()
+    {
         Health.sizeDelta = new Vector2(playerHealth, Health.rect.height);
         HPText.text = "HP:" + playerHealth;
 
-        if(playerHealth > 200)
+        if (playerHealth > 200)
         {
             playerHealth = 200;
         }
 
-        if(playerHealth <= 0 && isDead == false)
+        if (playerHealth <= 0 && isDead == false)
         {
             isDead = true;
             anim.SetTrigger("Dead");
@@ -41,6 +46,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //picks up collectibles when in trigger
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Collectible"))

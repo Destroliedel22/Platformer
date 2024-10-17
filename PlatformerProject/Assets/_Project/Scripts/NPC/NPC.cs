@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class NPC : MonoBehaviour
 {
+    //parent for npcs
+
     public float Stamina;
     public float health;
     public NavMeshAgent agent;

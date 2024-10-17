@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Diamond : PickUp
 {
+    public override void Activate()
+    {
+        StartCoroutine(WaitToLoadScene());
+    }
+
+    //loads main menu scene
     IEnumerator WaitToLoadScene()
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
-    }
-
-    public override void Activate()
-    {
-        StartCoroutine(WaitToLoadScene());
     }
 }

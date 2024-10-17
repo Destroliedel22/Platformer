@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class PickUp : MonoBehaviour
 {
+    //abstract class for all pickups
     public virtual void Activate()
     {
         Destroy(gameObject);

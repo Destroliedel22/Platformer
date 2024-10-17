@@ -16,6 +16,7 @@ public class MovingPlatform : MonoBehaviour
         movePlatform();
     }
 
+    //moves platform forward and backwards and switches when a destination is reached
     private void movePlatform()
     {
         if(!switching)
@@ -38,6 +39,7 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    //switches the bool
     IEnumerator WaitToSwitch()
     {
         yield return new WaitForSeconds(1f);

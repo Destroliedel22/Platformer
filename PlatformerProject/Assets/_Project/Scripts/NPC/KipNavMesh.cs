@@ -3,17 +3,17 @@ using UnityEngine.AI;
 
 public class KipNavMesh : NPC
 {
-    Vector3 RandomDestination;
-
     public Player player;
-
     public float destinationReachedThreshold = 1.0f;
+
+    private Vector3 RandomDestination;
 
     private void Awake()
     {
         agent = this.gameObject.GetComponent<NavMeshAgent>();
     }
 
+    //sets destination
     private void FixedUpdate()
     {
         if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold)

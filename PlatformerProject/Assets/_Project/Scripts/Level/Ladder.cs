@@ -12,10 +12,20 @@ public class Ladder : MonoBehaviour
     private bool cooldown = false;
     private bool onLadder = false;
     private Rigidbody rb;
+    private PlayerJump PlayerJump;
+    private PlayerControl PlayerControl;
 
+    private void FixedUpdate()
+    {
+        OnLadder();
+    }
+
+    //checks if near ladder
     private void OnTriggerStay(Collider other)
     {
         rb = other.gameObject.GetComponent<Rigidbody>();
+        PlayerJump = other.GetComponent<PlayerJump>();
+        PlayerControl = other.GetComponent<PlayerControl>();
 
         if (cooldown == false)
         {
@@ -32,11 +42,15 @@ public class Ladder : MonoBehaviour
                 }
             }
         }
+    }
 
+    //puts the player on the ladder
+    public void OnLadder()
+    {
         if (onLadder)
         {
-            other.gameObject.GetComponent<PlayerJump>().enabled = false;
-            other.gameObject.GetComponent<PlayerControl>().enabled = false;
+            PlayerJump.enabled = false;
+            PlayerControl.enabled = false;
             rb.useGravity = false;
             if (LadderInput.Instance.direction > 0)
             {
@@ -50,11 +64,12 @@ public class Ladder : MonoBehaviour
         }
         else
         {
-            other.gameObject.GetComponent<PlayerControl>().enabled = true;
-            other.gameObject.GetComponent<PlayerJump>().enabled = true;
+            PlayerControl.enabled = true;
+            PlayerJump.enabled = true;
         }
     }
 
+    //cooldown for going on ladder
     IEnumerator InteractCooldown()
     {
         cooldown = true;

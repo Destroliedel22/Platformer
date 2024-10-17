@@ -8,12 +8,14 @@ public class ButtonManager : MonoBehaviour
     {
         StartCoroutine(WaitToLoadScene());
     }
-
+    
+    //quit application
     public void Quit()
     {
         Application.Quit();
     }
 
+    //loads game scene
     IEnumerator WaitToLoadScene()
     {
         yield return new WaitForSeconds(1);

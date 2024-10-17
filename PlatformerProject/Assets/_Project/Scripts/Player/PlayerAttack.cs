@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private bool attacking;
     private Vector3 alienDirection;
 
+    //on click activates attack and get the angle from playerforward to the target
     private void FixedUpdate()
     {
         if (AttackInput.Instance.AttackClick == 1 && attacking == false)
@@ -24,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
         angle = Vector3.Angle(this.gameObject.transform.forward, alienDirection);
     }
 
+    //deals dmg when looking at the target and if player is close to target
     public void Attack()
     {
         if(alien.distance < 1 && angle < 45)
@@ -33,6 +35,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    //waits for animation before attacking again
     IEnumerator WaitWithAttack()
     {
         yield return new WaitForSeconds(clip.length);

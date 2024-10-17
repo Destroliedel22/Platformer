@@ -13,16 +13,18 @@ public class Coin : PickUp
         ParticleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
-    IEnumerator WaitToDestroy()
-    {
-        yield return new WaitForSeconds(ParticleSystem.main.duration);
-        base.Activate();
-    }
-
+    //adds coins to player when picking up
     public override void Activate()
     {
         ScoreManager.Instance.coinAmount++;
         Coins.text = "Coins:" + ScoreManager.Instance.coinAmount;
+        base.Activate();
+    }
+
+    //waits for particles system to destoy
+    IEnumerator WaitToDestroy()
+    {
+        yield return new WaitForSeconds(ParticleSystem.main.duration);
         base.Activate();
     }
 }
