@@ -1,10 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] public GameObject playerCanvas;
-    [SerializeField] public GameObject deathCanvas;
 
     public float playerHealth;
     public RectTransform Health;
@@ -40,9 +40,7 @@ public class Player : MonoBehaviour
             isDead = true;
             anim.SetTrigger("Dead");
             playerCanvas.SetActive(false);
-            deathCanvas.SetActive(true);
-            this.gameObject.GetComponent<PlayerControl>().enabled = false;
-            this.gameObject.GetComponent<PlayerJump>().enabled = false;
+            SceneManager.LoadScene(2);
         }
     }
 
