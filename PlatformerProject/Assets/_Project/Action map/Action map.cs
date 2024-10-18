@@ -24,7 +24,7 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
     ""name"": ""Action map"",
     ""maps"": [
         {
-            ""name"": ""Controls"",
+            ""name"": ""Movement"",
             ""id"": ""210ba372-139e-4c1a-8bb4-fb307c3eedbd"",
             ""actions"": [
                 {
@@ -404,10 +404,10 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Controls
-        m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
-        m_Controls_move = m_Controls.FindAction("move", throwIfNotFound: true);
-        m_Controls_sprint = m_Controls.FindAction("sprint", throwIfNotFound: true);
+        // Movement
+        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
+        m_Movement_move = m_Movement.FindAction("move", throwIfNotFound: true);
+        m_Movement_sprint = m_Movement.FindAction("sprint", throwIfNotFound: true);
         // Jump
         m_Jump = asset.FindActionMap("Jump", throwIfNotFound: true);
         m_Jump_Jump = m_Jump.FindAction("Jump", throwIfNotFound: true);
@@ -479,26 +479,26 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Controls
-    private readonly InputActionMap m_Controls;
-    private List<IControlsActions> m_ControlsActionsCallbackInterfaces = new List<IControlsActions>();
-    private readonly InputAction m_Controls_move;
-    private readonly InputAction m_Controls_sprint;
-    public struct ControlsActions
+    // Movement
+    private readonly InputActionMap m_Movement;
+    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
+    private readonly InputAction m_Movement_move;
+    private readonly InputAction m_Movement_sprint;
+    public struct MovementActions
     {
         private @Actionmap m_Wrapper;
-        public ControlsActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @move => m_Wrapper.m_Controls_move;
-        public InputAction @sprint => m_Wrapper.m_Controls_sprint;
-        public InputActionMap Get() { return m_Wrapper.m_Controls; }
+        public MovementActions(@Actionmap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @move => m_Wrapper.m_Movement_move;
+        public InputAction @sprint => m_Wrapper.m_Movement_sprint;
+        public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ControlsActions set) { return set.Get(); }
-        public void AddCallbacks(IControlsActions instance)
+        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
+        public void AddCallbacks(IMovementActions instance)
         {
-            if (instance == null || m_Wrapper.m_ControlsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ControlsActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
             @move.started += instance.OnMove;
             @move.performed += instance.OnMove;
             @move.canceled += instance.OnMove;
@@ -507,7 +507,7 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
             @sprint.canceled += instance.OnSprint;
         }
 
-        private void UnregisterCallbacks(IControlsActions instance)
+        private void UnregisterCallbacks(IMovementActions instance)
         {
             @move.started -= instance.OnMove;
             @move.performed -= instance.OnMove;
@@ -517,21 +517,21 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
             @sprint.canceled -= instance.OnSprint;
         }
 
-        public void RemoveCallbacks(IControlsActions instance)
+        public void RemoveCallbacks(IMovementActions instance)
         {
-            if (m_Wrapper.m_ControlsActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IControlsActions instance)
+        public void SetCallbacks(IMovementActions instance)
         {
-            foreach (var item in m_Wrapper.m_ControlsActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_ControlsActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public ControlsActions @Controls => new ControlsActions(this);
+    public MovementActions @Movement => new MovementActions(this);
 
     // Jump
     private readonly InputActionMap m_Jump;
@@ -724,7 +724,7 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
         }
     }
     public LadderActions @Ladder => new LadderActions(this);
-    public interface IControlsActions
+    public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
