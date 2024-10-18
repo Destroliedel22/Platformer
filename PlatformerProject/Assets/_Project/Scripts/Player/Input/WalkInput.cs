@@ -43,11 +43,11 @@ public class WalkInput : MonoBehaviour
     private void OnEnable()
     {
         myPlayerMovement.Enable();
-        myPlayerMovement.Controls.Enable();
-        myPlayerMovement.Controls.move.performed += Move;
-        myPlayerMovement.Controls.move.canceled += StopMove;
-        myPlayerMovement.Controls.sprint.performed += Sprint;
-        myPlayerMovement.Controls.sprint.canceled += StopSprint;
+        myPlayerMovement.Movement.Enable();
+        myPlayerMovement.Movement.move.performed += Move;
+        myPlayerMovement.Movement.move.canceled += StopMove;
+        myPlayerMovement.Movement.sprint.performed += Sprint;
+        myPlayerMovement.Movement.sprint.canceled += StopSprint;
     }
 
     private void Move(InputAction.CallbackContext value)

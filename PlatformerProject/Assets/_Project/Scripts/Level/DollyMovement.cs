@@ -27,9 +27,9 @@ public class DollyMovement : MonoBehaviour
     private void OnEnable()
     {
         myPlayerMovement.Enable();
-        myPlayerMovement.Controls.Enable();
-        myPlayerMovement.Controls.move.performed += Move;
-        myPlayerMovement.Controls.move.canceled += StopMove;
+        myPlayerMovement.Movement.Enable();
+        myPlayerMovement.Movement.move.performed += Move;
+        myPlayerMovement.Movement.move.canceled += StopMove;
     }
 
     private void Move(InputAction.CallbackContext value)

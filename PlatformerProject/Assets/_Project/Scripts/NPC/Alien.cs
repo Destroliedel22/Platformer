@@ -20,30 +20,29 @@ public class Alien : NPC
     [SerializeField] int damage;
     [SerializeField] bool attackCoroutineActive;
     [SerializeField] float destinationReachedThreshold;
-    [SerializeField] Transform Underground;
+    [SerializeField] Transform underground;
     [SerializeField] float deathSpeed;
 
     public RectTransform AlienHealthBar;
-    public GameObject playerObject;
+    public GameObject PlayerObject;
     public DamageCanvas Dc;
-    public Image image;
+    public Image Image;
 
-    private bool IsDead;
-    private bool noStamina;
+    private bool isDead;
     private bool coroutineActive;
-    private int RngDeath;
+    private int rngDeath;
     private Rigidbody rb;
     private Animator anim;
     private Player player;
-    private Vector3 RandomDestination;
+    private Vector3 randomDestination;
     private AlienState state;
 
     [Header("timers")]
-    public float idleTimer;
-    public float roamingTimer;
+    public float IdleTimer;
+    public float RoamingTimer;
 
     [Header("Detecting Range")]
-    [SerializeField] public float distance;
+    [SerializeField] public float Distance;
     [SerializeField] float followReachedThreshold;
     [SerializeField] float runReachedThreshold;
     [SerializeField] float attackReachedThreshold;
@@ -54,16 +53,15 @@ public class Alien : NPC
         anim = this.gameObject.GetComponent<Animator>();
         rb = this.gameObject.GetComponent<Rigidbody>();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
-        player = playerObject.gameObject.GetComponent<Player>();
+        player = PlayerObject.gameObject.GetComponent<Player>();
     }
 
     private void Start()
     {
         state = AlienState.idle;
-        Stamina = 100;
         health = 200;
-        IsDead = false;
-        RngDeath = Random.Range(1, 3);
+        isDead = false;
+        rngDeath = Random.Range(1, 3);
     }
 
     private void Update()
@@ -83,11 +81,11 @@ public class Alien : NPC
     //deals dmg to the player
     public void DealDmg()
     {
-        if (distance < 1)
+        if (Distance < 1)
         {
             player.playerHealth -= damage;
-            playerObject.GetComponentInChildren<Animator>().SetTrigger("TakenDmg");
-            StartCoroutine(Dc.FadeIn(image));
+            PlayerObject.GetComponentInChildren<Animator>().SetTrigger("TakenDmg");
+            StartCoroutine(Dc.FadeIn(Image));
         }
     }
 
@@ -96,7 +94,7 @@ public class Alien : NPC
     {
         if (!agent.pathPending && agent.remainingDistance <= destinationReachedThreshold)
         {
-            RandomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
+            randomDestination = new Vector3(transform.position.x + Random.Range(-10, 10), 0, transform.position.z + Random.Range(-10, 10));
         }
     }
 
@@ -126,55 +124,55 @@ public class Alien : NPC
         }
     }
 
-    //updates the healthbar to how many hp and when it reaches 0 state is death
+    //updates the health bar to how many hp and when it reaches 0 state is death
     private void AlienHealth()
     {
         AlienHealthBar.sizeDelta = new Vector2(health / 400, AlienHealthBar.rect.height);
         Camera cam = FindObjectOfType<Camera>();
         AlienHealthBar.parent.LookAt(cam.transform);
 
-        if (health <= 0 && IsDead == false)
+        if (health <= 0 && isDead == false)
         {
             state = AlienState.death;
         }
-        if (IsDead)
+        if (isDead)
         {
             state = AlienState.death;
         }
 
-        if (IsDead == false)
+        if (isDead == false)
         {
-            distanceToPlayer();
+            DistanceToPlayer();
         }
     }
 
     //calculates the distance between the player and the alien and changes the state according to how far
-    private void distanceToPlayer()
+    private void DistanceToPlayer()
     {
         if(health > 0)
         {
-            distance = Vector3.Distance(this.transform.position, playerObject.transform.position);
-            if (distance < attackReachedThreshold)
+            Distance = Vector3.Distance(this.transform.position, PlayerObject.transform.position);
+            if (Distance < attackReachedThreshold)
             {
                 state = AlienState.attacking;
             }
-            else if (distance < runReachedThreshold && !noStamina)
+            else if (Distance < runReachedThreshold)
             {
                 state = AlienState.running;
             }
-            else if (distance < followReachedThreshold && !noStamina)
+            else if (Distance < followReachedThreshold)
             {
                 state = AlienState.following;
             }
-            if (distance > followReachedThreshold)
+            if (Distance > followReachedThreshold)
             {
                 state = AlienState.roaming;
             }
-            else if (distance > runReachedThreshold)
+            else if (Distance > runReachedThreshold)
             {
                 state = AlienState.following;
             }
-            else if (distance > attackReachedThreshold)
+            else if (Distance > attackReachedThreshold)
             {
                 anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
                 state = AlienState.running;
@@ -189,14 +187,13 @@ public class Alien : NPC
         agent.speed = 0;
         rb.velocity = Vector3.zero;
         StartCoroutine(SwitchToRoaming());
-        Stamina = 100;
     }
 
     //goes to a destination he gets
     private void Roaming()
     {
         anim.SetFloat("Blend", 2);
-        agent.SetDestination(RandomDestination);
+        agent.SetDestination(randomDestination);
         agent.speed = 2;
         StartCoroutine(SwitchToIdle());
     }
@@ -205,7 +202,7 @@ public class Alien : NPC
     private void Follow()
     {
         anim.SetFloat("Blend", 2);
-        agent.SetDestination(playerObject.transform.position);
+        agent.SetDestination(PlayerObject.transform.position);
         agent.speed = 2;
     }
 
@@ -213,19 +210,8 @@ public class Alien : NPC
     private void Running()
     {
         anim.SetFloat("Blend", 5);
-        agent.SetDestination(playerObject.transform.position);
+        agent.SetDestination(PlayerObject.transform.position);
         agent.speed = 3.5f;
-        if(!coroutineActive)
-        {
-            StartCoroutine(StaminaLosing());
-            coroutineActive = true;
-        }
-        if(Stamina <= 0)
-        {
-            state = AlienState.idle;
-            noStamina = true;
-            coroutineActive = false;
-        }
     }
 
     //attacks the player and reduces stamina
@@ -237,51 +223,37 @@ public class Alien : NPC
         {
             attackCoroutineActive = true;
             StartCoroutine(WaitToAttack());
-            //Stamina -= 20;
         }
-        else if(Stamina <= 0)
-        {
-            state = AlienState.idle;
-        }
-        this.gameObject.transform.LookAt(playerObject.transform.position);
+        this.gameObject.transform.LookAt(PlayerObject.transform.position);
     }
 
     //plays death animation
     private void Death()
     {
         agent.enabled = false;
-        if (IsDead == false)
+        if (isDead == false)
         {
             anim.SetTrigger("Dead");
-            anim.SetInteger("RngDeath", RngDeath);
+            anim.SetInteger("RngDeath", rngDeath);
             StartCoroutine(WaitToDissolve());
         }
-        IsDead = true;
+        isDead = true;
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
-        //GetComponent<Collider>().enabled = false;
     }
 
     //switches to roaming after a couple seconds
     IEnumerator SwitchToRoaming()
     {
-        yield return new WaitForSeconds(idleTimer);
+        yield return new WaitForSeconds(IdleTimer);
         state = AlienState.roaming;
     }
     
     //switches to idle after a random amount of seconds between 5 and 20
     IEnumerator SwitchToIdle()
     {
-        roamingTimer = Random.Range(5, 20);
-        yield return new WaitForSeconds(roamingTimer);
+        RoamingTimer = Random.Range(5, 20);
+        yield return new WaitForSeconds(RoamingTimer);
         StopCoroutine(SwitchToIdle());
-    }
-
-    //loses stamina every second
-    IEnumerator StaminaLosing()
-    {
-        yield return new WaitForSeconds(1f);
-        //Stamina -= 10;
-        coroutineActive = false;
     }
 
     //attack cooldown

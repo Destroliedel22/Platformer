@@ -52,6 +52,7 @@ public class PlayerControl : MonoBehaviour
             rigidBody.AddForce(moveDirection * Speed + new Vector3(0, rigidBody.velocity.y, 0));
 
             playerCamera.RotatePlayer(moveDirection);
+            
         }
         else
         {

@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
     //deals dmg when looking at the target and if player is close to target
     public void Attack()
     {
-        if(alien.distance < 1 && angle < 45)
+        if(alien.Distance < 1 && angle < 45)
         {
             alien.health -= Dmg;
             alien.gameObject.GetComponent<Animator>().SetTrigger("TakenDmg");

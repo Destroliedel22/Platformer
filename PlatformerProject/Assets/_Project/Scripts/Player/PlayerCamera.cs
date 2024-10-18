@@ -1,19 +1,20 @@
 using Cinemachine;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    [SerializeField] Camera cam;
-
     public float RotationSpeed = 5f;
     public Camera liveCam;
 
     private Rigidbody rigidBody;
+    private XROrigin xROrigin;
 
     private void Awake()
     {
         rigidBody = this.gameObject.GetComponent<Rigidbody>();
         liveCam = Camera.main;
+        xROrigin = FindObjectOfType<XROrigin>();
     }
 
     //returns the direction the players moves according to camera
