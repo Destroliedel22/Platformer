@@ -569,9 +569,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 860.0002, y: -341.22318}
+  m_AnchoredPosition: {x: 810.0002, y: -291.2232}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.75, y: 0.25}
 --- !u!114 &35406882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1563,11 +1563,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236730178052137, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 802876713190553047, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 818674029940729779, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1599,7 +1599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5452345249410482398, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: clip
@@ -1611,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997032510727163805, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7425258988861670434, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8893,7 +8893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ControlPath: <Gamepad>/buttonEast
+  m_ControlPath: <Gamepad>/leftStickPress
 --- !u!114 &679306369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9959,11 +9959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236730178052137, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 802876713190553047, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1945401284363317760, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9979,7 +9979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5452345249410482398, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: speed
@@ -9987,7 +9987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997032510727163805, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7425258988861670434, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10349,11 +10349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236730178052137, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 802876713190553047, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1945401284363317760, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10369,7 +10369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5452345249410482398, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: speed
@@ -10377,7 +10377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997032510727163805, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7425258988861670434, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15851,10 +15851,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -21466,9 +21466,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -860.00006, y: -341.22318}
+  m_AnchoredPosition: {x: -810.0006, y: -291.22327}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.25, y: 0.25}
 --- !u!114 &1789887430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22185,11 +22185,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236730178052137, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 802876713190553047, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4630962179886629882, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22201,7 +22201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5452345249410482398, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: speed
@@ -22209,7 +22209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6997032510727163805, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7425258988861670434, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29258,7 +29258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4916334409815064010
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     private Actionmap myPlayerMovement;
     private Animator anim;
     private PlayerCamera playerCamera;
+    private bool sprinting;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class PlayerControl : MonoBehaviour
     {
         anim.SetFloat("Speed", Speed);
         Movement();
-        Sprinting();
+        Sprint();
         rigidBody.angularVelocity = Vector3.zero;
         if(Speed > MaxSpeed)
         {
@@ -60,18 +61,24 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //sprinting when button is held
-    private void Sprinting()
+    //sprinting when button is pressed
+    private void Sprint()
     {
         if(WalkInput.Instance.Sprinting == 1)
         {
-            MaxSpeed = 40;
-            anim.SetBool("Sprinting", true);
-        }
-        else
-        {
-            MaxSpeed = 20;
-            anim.SetBool("Sprinting", false);
+            switch(sprinting)
+            {
+                case true:
+                    sprinting = false;
+                    MaxSpeed = 20;
+                    anim.SetBool("Sprinting", false);
+                break;
+                case false:
+                    MaxSpeed = 40;
+                    sprinting = true;
+                    anim.SetBool("Sprinting", true);
+                break;
+            }
         }
     }
 
