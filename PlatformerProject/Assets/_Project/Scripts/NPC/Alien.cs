@@ -238,6 +238,7 @@ public class Alien : NPC
             StartCoroutine(WaitToDissolve());
         }
         isDead = true;
+        rb.constraints = RigidbodyConstraints.None;
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 0f);
     }
 
