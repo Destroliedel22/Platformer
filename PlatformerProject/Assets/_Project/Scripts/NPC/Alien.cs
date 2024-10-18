@@ -62,6 +62,7 @@ public class Alien : NPC
         health = 200;
         isDead = false;
         rngDeath = Random.Range(1, 3);
+        attackCoroutineActive = false;
     }
 
     private void Update()
@@ -206,7 +207,7 @@ public class Alien : NPC
         agent.speed = 2;
     }
 
-    //runs towards the player while stamina is going down
+    //runs towards the player
     private void Running()
     {
         anim.SetFloat("Blend", 5);
@@ -214,12 +215,12 @@ public class Alien : NPC
         agent.speed = 3.5f;
     }
 
-    //attacks the player and reduces stamina
+    //attacks the player
     private void Attack()
     {
         anim.SetLayerWeight(anim.GetLayerIndex("Attacking"), 1f);
         agent.speed = 0;
-        if(!attackCoroutineActive && Stamina > 0)
+        if(!attackCoroutineActive)
         {
             attackCoroutineActive = true;
             StartCoroutine(WaitToAttack());
