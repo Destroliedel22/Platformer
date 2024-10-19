@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("Collectible"))
         {
             other.GetComponent<PickUp>().Activate();
+            other = other.GetComponent<PickUp>().other;
         }
     }
 }

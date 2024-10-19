@@ -1,14 +1,10 @@
 using UnityEngine;
 
-public class Apple : MonoBehaviour
+public class Apple : PickUp
 {
-    //when picking up gives player hp
-    private void OnCollisionEnter(Collision collision)
+    public override void Activate()
     {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<Player>().playerHealth += 25;
-            Destroy(this.gameObject);
-        }
+        other.gameObject.GetComponent<Player>().playerHealth += 25;
+        base.Activate();
     }
 }
