@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartLevel : MonoBehaviour
 {
+    [SerializeField] Image InteractButton;
+
     public bool CrownPickedUp = false;
     public GameObject coinsAndCrown;
 

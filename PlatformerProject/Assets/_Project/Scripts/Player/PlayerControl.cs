@@ -1,11 +1,18 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField] Image sprintImg;
+    [SerializeField] Sprite sprintOn;
+    [SerializeField] Sprite sprintOff;
+
     public float Speed;
     public float MaxSpeed;
 
+    private bool sprintToggleCooldown;
     private Rigidbody rigidBody;
     private Actionmap myPlayerMovement;
     private Animator anim;
@@ -24,6 +31,7 @@ public class PlayerControl : MonoBehaviour
         anim.SetFloat("Speed", Speed);
         Movement();
         Sprint();
+        SprintImg();
         rigidBody.angularVelocity = Vector3.zero;
         if(Speed > MaxSpeed)
         {
@@ -64,8 +72,9 @@ public class PlayerControl : MonoBehaviour
     //sprinting when button is pressed
     private void Sprint()
     {
-        if(WalkInput.Instance.Sprinting == 1)
+        if(WalkInput.Instance.Sprinting == 1 && sprintToggleCooldown == false)
         {
+            sprintToggleCooldown = true;
             switch(sprinting)
             {
                 case true:
@@ -77,7 +86,26 @@ public class PlayerControl : MonoBehaviour
                     MaxSpeed = 40;
                     sprinting = true;
                     anim.SetBool("Sprinting", true);
-                break;
+                    break;
+            }
+        }
+        else if(WalkInput.Instance.Sprinting == 0)
+        {
+            sprintToggleCooldown = false;
+        }
+    }
+
+    private void SprintImg()
+    {
+        if(sprintImg != null)
+        {
+            if (sprinting)
+            {
+                sprintImg.sprite = sprintOn;
+            }
+            else
+            {
+                sprintImg.sprite = sprintOff;
             }
         }
     }

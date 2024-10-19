@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    [SerializeField] private List<Transform> fruitSpawns = new List<Transform>();
-    [SerializeField] private GameObject ShakeCanvas;
+    [SerializeField] List<Transform> fruitSpawns = new List<Transform>();
+    [SerializeField] GameObject ShakeCanvas;
+    [SerializeField] 
 
     public GameObject Fruit;
 
@@ -44,6 +45,7 @@ public class Tree : MonoBehaviour
         {
             ShakeCanvas.SetActive(false);
         }
+
     }
 
     private void OnTriggerExit(Collider other)
