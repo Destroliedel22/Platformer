@@ -1,15 +1,13 @@
 using UnityEngine;
 
-public class Water : MonoBehaviour
+public class Void : MonoBehaviour
 {
-    public Player player;
-
     //if player touches water they die
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            player.playerHealth = 0;
+            other.gameObject.GetComponent<Player>().playerHealth = 0;
         }
     }
 }
