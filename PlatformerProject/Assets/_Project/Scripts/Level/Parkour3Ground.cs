@@ -7,6 +7,7 @@ using UnityEngine;
 public class Parkour3Ground : MonoBehaviour
 {
     [SerializeField] CinemachineFreeLook freeLookCam;
+    [SerializeField] CinemachineFreeLook MobileCam;
     [SerializeField] CinemachineVirtualCamera virtualCam;
 
     //switches camera to 2d camera for 3rd level when touching the ground
@@ -14,7 +15,14 @@ public class Parkour3Ground : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<XROrigin>().enabled == false)
         {
-            freeLookCam.gameObject.SetActive(false);
+            if(freeLookCam == null)
+            {
+                MobileCam.gameObject.SetActive(false);
+            }
+            else
+            {
+                freeLookCam.gameObject.SetActive(false);
+            }
             virtualCam.gameObject.SetActive(true);
         }
     }

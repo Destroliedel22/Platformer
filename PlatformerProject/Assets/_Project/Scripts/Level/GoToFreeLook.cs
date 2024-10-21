@@ -5,6 +5,7 @@ using UnityEngine;
 public class GoToFreeLook : MonoBehaviour
 {
     [SerializeField] CinemachineFreeLook freeLookCamera;
+    [SerializeField] CinemachineFreeLook MobileCam;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
 
     //activates 3d camera if not in level 3
@@ -12,8 +13,15 @@ public class GoToFreeLook : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<XROrigin>().enabled == false)
         {
+            if(freeLookCamera == null)
+            {
+                MobileCam.gameObject.SetActive(true);
+            }
+            else
+            {
+                freeLookCamera.gameObject.SetActive(true);
+            }
             virtualCamera.gameObject.SetActive(false);
-            freeLookCamera.gameObject.SetActive(true);
         }
     }
 }
