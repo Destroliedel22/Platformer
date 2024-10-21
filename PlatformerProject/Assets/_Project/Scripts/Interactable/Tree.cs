@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Tree : MonoBehaviour
+public class Tree : MonoBehaviour, IInteractable
 {
     [SerializeField] List<Transform> fruitSpawns = new List<Transform>();
     [SerializeField] GameObject ShakeCanvas;
-    [SerializeField] 
+    [SerializeField] Image InteractButton;
 
     public GameObject Fruit;
 
@@ -25,11 +26,11 @@ public class Tree : MonoBehaviour
         ShakeCanvas.transform.LookAt(camera);
     }
 
-    private void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if(other.gameObject.CompareTag("Player") && fruitSpawns.Count > 0)
         {
-            ShakeCanvas.SetActive(true);
+            
             if (InteractInput.Instance.click == 1)
             {
                 if(shaken == false && maxFruitAmount < 3)
@@ -40,6 +41,7 @@ public class Tree : MonoBehaviour
                     maxFruitAmount++;
                 }
             }
+            InTrigger();
         }
         else if(fruitSpawns.Count == 0)
         {
@@ -63,6 +65,18 @@ public class Tree : MonoBehaviour
         fruitSpawn = randomTransform;
         Instantiate(Fruit, fruitSpawn.position, Quaternion.identity, fruitSpawn);
         fruitSpawns.Remove(fruitSpawn);
+    }
+
+    public void InTrigger()
+    {
+        if (InteractButton != null)
+        {
+            InteractButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            ShakeCanvas.SetActive(true);
+        }
     }
 
     //waits till you can shake again

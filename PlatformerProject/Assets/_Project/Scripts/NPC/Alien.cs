@@ -25,7 +25,7 @@ public class Alien : NPC
 
     public RectTransform AlienHealthBar;
     public GameObject PlayerObject;
-    public DamageCanvas Dc;
+    public DmgImg DmgImg;
     public Image Image;
 
     private bool isDead;
@@ -86,7 +86,7 @@ public class Alien : NPC
         {
             player.playerHealth -= damage;
             PlayerObject.GetComponentInChildren<Animator>().SetTrigger("TakenDmg");
-            StartCoroutine(Dc.FadeIn(Image));
+            StartCoroutine(DmgImg.FadeIn(Image));
         }
     }
 

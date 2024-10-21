@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DamageCanvas : MonoBehaviour
+public class DmgImg : MonoBehaviour
 {
     [SerializeField] float fadeInSpeed;
     [SerializeField] float fadeOutSpeed;
