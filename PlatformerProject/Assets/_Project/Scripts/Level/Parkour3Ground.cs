@@ -13,7 +13,7 @@ public class Parkour3Ground : MonoBehaviour
     //switches camera to 2d camera for 3rd level when touching the ground
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<XROrigin>().enabled == false)
+        if(collision.gameObject.CompareTag("Player"))
         {
             if(freeLookCam == null)
             {
