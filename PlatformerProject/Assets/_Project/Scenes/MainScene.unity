@@ -18174,6 +18174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeLookCamera: {fileID: 1111733706}
+  MobileCam: {fileID: 352857625}
   virtualCamera: {fileID: 1234556566}
 --- !u!95 &1090701700
 Animator:
@@ -24053,6 +24054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   freeLookCam: {fileID: 1111733706}
+  MobileCam: {fileID: 352857625}
   virtualCam: {fileID: 1234556566}
 --- !u!1001 &1456603002
 PrefabInstance:
