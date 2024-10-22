@@ -11,7 +11,7 @@ public class GoToFreeLook : MonoBehaviour
     //activates 3d camera if not in level 3
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<XROrigin>().enabled == false)
+        if(collision.gameObject.CompareTag("Player"))
         {
             if(freeLookCamera == null)
             {

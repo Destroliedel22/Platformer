@@ -21,14 +21,17 @@ public class PlayerAttack : MonoBehaviour
             this.gameObject.GetComponentInChildren<Animator>().SetTrigger("Attacking");
             StartCoroutine(WaitWithAttack());
         }
-        alienDirection = alien.gameObject.transform.position - this.gameObject.transform.position;
-        angle = Vector3.Angle(this.gameObject.transform.forward, alienDirection);
+        if(alien != null)
+        {
+            alienDirection = alien.gameObject.transform.position - this.gameObject.transform.position;
+            angle = Vector3.Angle(this.gameObject.transform.forward, alienDirection);
+        }
     }
 
     //deals dmg when looking at the target and if player is close to target
     public void Attack()
     {
-        if(alien.Distance < 1 && angle < 45)
+        if(alien.Distance < 1 && angle < 45 && alien != null)
         {
             alien.health -= Dmg;
             alien.gameObject.GetComponent<Animator>().SetTrigger("TakenDmg");

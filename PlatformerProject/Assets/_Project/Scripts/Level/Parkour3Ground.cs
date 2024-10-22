@@ -10,10 +10,17 @@ public class Parkour3Ground : MonoBehaviour
     [SerializeField] CinemachineFreeLook MobileCam;
     [SerializeField] CinemachineVirtualCamera virtualCam;
 
+    private XROrigin xROrigin;
+
+    private void Awake()
+    {
+        xROrigin = FindObjectOfType<XROrigin>();
+    }
+
     //switches camera to 2d camera for 3rd level when touching the ground
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponentInParent<XROrigin>().enabled == false)
+        if(collision.gameObject.CompareTag("Player") && xROrigin == null)
         {
             if(freeLookCam == null)
             {
