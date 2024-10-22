@@ -1900,10 +1900,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 7400000, guid: 8f99253a3e5de9440997b9df86e7e304, type: 2}
-    - target: {fileID: 5831591457288570480, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
@@ -1958,9 +1954,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6997032510727163805, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1090701693}
-    - targetCorrespondingSourceObject: {fileID: 6997032510727163805, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1090701700}
   m_SourcePrefab: {fileID: 100100000, guid: 7e22bd91c2e06134aac3f0f1f6c58c2b, type: 3}
 --- !u!1001 &146196307
 PrefabInstance:
@@ -4976,7 +4969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &352857624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7898,7 +7891,7 @@ Transform:
   m_GameObject: {fileID: 419804082}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -10.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18176,27 +18169,6 @@ MonoBehaviour:
   freeLookCamera: {fileID: 1111733706}
   MobileCam: {fileID: 352857625}
   virtualCamera: {fileID: 1234556566}
---- !u!95 &1090701700
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090701686}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eff0e84e807f9314b9d102047d240133, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1090978755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26322,8 +26294,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589054757}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20990533, y: -0.20957914, z: 0.046118718, w: 0.95388126}
-  m_LocalPosition: {x: -1.643726, y: -0.98, z: -24.445953}
+  m_LocalRotation: {x: 0.13610247, y: -0.000000033009957, z: 0.000000004534936, w: 0.99069476}
+  m_LocalPosition: {x: -3.654, y: -0.69800043, z: -23.092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26555,11 +26527,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -27557,7 +27529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682822703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39163,7 +39135,7 @@ MonoBehaviour:
   deathSpeed: 2
   AlienHealthBar: {fileID: 1356711064}
   PlayerObject: {fileID: 2007393565}
-  DmgImg: {fileID: 0}
+  DmgImg: {fileID: 303456462}
   Image: {fileID: 1335646374}
   IdleTimer: 2
   RoamingTimer: 0
