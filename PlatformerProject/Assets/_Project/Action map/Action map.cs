@@ -149,7 +149,7 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""07401f17-ec16-437c-970c-a2cd87f73aca"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerOpenXR>{LeftHand}/thumbstickclicked"",
+                    ""path"": ""<OculusTouchController>{LeftHand}/thumbstickClicked"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -199,7 +199,7 @@ public partial class @Actionmap: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ce16c016-da12-44a3-b054-0d53faab044b"",
-                    ""path"": ""<XRInputV1::Oculus::OculusTouchControllerOpenXR>{RightHand}/primarybutton"",
+                    ""path"": ""<OculusTouchController>{RightHand}/primaryButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
